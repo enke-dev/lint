@@ -79,7 +79,7 @@ export default eslintTs.config(
   },
   // lit web components
   {
-    files: ['*.component.ts', '*.component.tsx'],
+    files: ['**/*.component.ts', '**/*.component.tsx'],
     extends: [
       eslintPluginWC.configs['flat/recommended'],
       eslintPluginLit.configs['flat/recommended'],
