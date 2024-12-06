@@ -1,0 +1,42 @@
+{
+  "name": "@enke.dev/lint",
+  "version": "0.0.0",
+  "description": "Meta package to provide linting for web projects",
+  "homepage": "https://github.com/enke-dev/lint",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enke-dev/lint.git"
+  },
+  "type": "module",
+  "main": "eslint.config.js",
+  "types": "eslint.config.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "David Enke",
+  "license": "MIT",
+  "peerDependencies": {
+    "eslint": "^9.13.0",
+    "prettier": "^3.3.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-lit": "^1.15.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "eslint-plugin-wc": "^2.2.0",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.10.0"
+  }
+}
