@@ -1,4 +1,5 @@
 import eslintJs from '@eslint/js';
+import eslintJson from '@eslint/json';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginLit from 'eslint-plugin-lit';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -66,6 +67,17 @@ export default eslintTs.config(
       'unused-imports/no-unused-imports': 'error',
     },
   },
+  // json files
+  {
+    ...eslintJson.configs.recommended,
+    files: ['**/*.json'],
+    ignores: ['package-lock.json'],
+    language: 'json/json',
+    rules: {
+      'no-irregular-whitespace': 'off',
+    },
+  },
+  // lit web components
   {
     files: ['*.component.ts', '*.component.tsx'],
     extends: [
