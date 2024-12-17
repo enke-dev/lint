@@ -2,10 +2,10 @@
 
 ## Install packages
 
-Make sure to install the necessary peer dependencies `eslint` and `prettier`.
+Make sure to install the necessary peer dependencies `eslint`, `prettier` and `typescript-eslint`.
 
 ```bash
-npm i -D eslint prettier @enke.dev/lint
+npm i -D @enke.dev/lint eslint prettier typescript-eslint
 ```
 
 ## Prepare config
