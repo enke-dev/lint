@@ -2,10 +2,10 @@
 
 ## Install packages
 
-Make sure to install the necessary peer dependencies `eslint`, `prettier` and `typescript-eslint`.
+Make sure to install the necessary peer dependencies `eslint` and `prettier`.
 
 ```bash
-npm i -D @enke.dev/lint eslint prettier typescript-eslint
+npm i -D @enke.dev/lint eslint prettier
 ```
 
 ## Prepare config
@@ -13,10 +13,9 @@ npm i -D @enke.dev/lint eslint prettier typescript-eslint
 Create a `eslint.config.js` file in the root of your project and add the following content:
 
 ```js
-import eslintTs from 'typescript-eslint';
 import config from '@enke.dev/lint';
 
-export default eslintTs.config(...config);
+export default config;
 ```
 
 ## Using typescript
@@ -24,19 +23,27 @@ export default eslintTs.config(...config);
 If you intend to use Typescript for your config file, you have to do some trickery right now:
 
 ```bash
-# install "jiti" once, to prevent an error
-npm i -D jiti
-
 # run eslint with a flag
 eslint --flag unstable_ts_config -c eslint.config.ts
 ```
 
-You may want to configure VSCodes eslint plugin to use the `unstable_ts_config` flag by default:
+You may want to configure VSCodes eslint plugin to use the `unstable_ts_config` flag by default and to pick up the config file as well:
 
 ```json
 {
   "eslint.options": {
-    "unstable_ts_config": true
+    "flags": ["unstable_ts_config"],
+    "overrideConfigFile": "./eslint.config.ts"
   }
+}
+```
+
+## Using monorepos
+
+Like the experimental typescript config flag above, the VSCode Eslint plugin can be configured to pick up the packages correctly by setting:
+
+```json
+{
+  "eslint.workingDirectories": ["./packages/foo", "./packages/bar"]
 }
 ```
