@@ -1,5 +1,12 @@
 # ENKE.DEV lint
 
+## [0.2.2](https://github.com/enke-dev/lint/compare/0.2.1...0.2.2) (2024-12-18)
+
+
+### Bug Fixes
+
+* set explicit type ([192bdb9](https://github.com/enke-dev/lint/commit/192bdb94e321f7532ac087f81222b76f35558941))
+
 ## [0.2.1](https://github.com/enke-dev/lint/compare/0.2.0...0.2.1) (2024-12-18)
 
 
