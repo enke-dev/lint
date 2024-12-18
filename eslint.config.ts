@@ -1,5 +1,6 @@
 import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
+import type { Linter } from 'eslint';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginLit from 'eslint-plugin-lit';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -85,4 +86,4 @@ export default eslintTs.config(
       eslintPluginLit.configs['flat/recommended'],
     ],
   },
-);
+) as Linter.Config[];
