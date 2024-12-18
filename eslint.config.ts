@@ -65,6 +65,9 @@ export default eslintTs.config(
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
       'unused-imports/no-unused-imports': 'error',
+
+      // unused catch errors
+      'no-unused-vars': ['error', { caughtErrors: 'none' }],
     },
   },
   // json files
