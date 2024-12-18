@@ -62,12 +62,9 @@ export default eslintTs.config(
       '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-vars': [
         'error',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrors: 'none' },
       ],
       'unused-imports/no-unused-imports': 'error',
-
-      // unused catch errors
-      'no-unused-vars': ['error', { caughtErrors: 'none' }],
     },
   },
   // json files
