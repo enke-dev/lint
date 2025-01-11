@@ -1,5 +1,12 @@
 # ENKE.DEV lint
 
+# [0.3.0](https://github.com/enke-dev/lint/compare/0.2.2...0.3.0) (2025-01-11)
+
+
+### Features
+
+* use latest eslint version ([f9b49ff](https://github.com/enke-dev/lint/commit/f9b49ffa8fac5dd8e319e14fb1b28bfe5cced7ec))
+
 ## [0.2.2](https://github.com/enke-dev/lint/compare/0.2.1...0.2.2) (2024-12-18)
 
 
