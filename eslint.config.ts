@@ -82,6 +82,8 @@ export default eslintTs.config(
       'import/first': 'error',
       'import/newline-after-import': 'error',
       'import/no-duplicates': 'error',
+      'import/no-unresolved': 'error',
+      'import/extensions': ['error', 'ignorePackages', { ts: 'never', js: 'always' }],
       'prettier/prettier': ['error', {}, { usePrettierrc: true }],
 
       // unused imports
