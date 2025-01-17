@@ -95,9 +95,7 @@ export default eslintTs.config(
     files: ['**/*.json'],
     ignores: ['package-lock.json'],
     language: 'json/json',
-    rules: {
-      'no-irregular-whitespace': 'off',
-    },
+    rules: { 'no-irregular-whitespace': 'off' },
   },
   // lit web components
   {
