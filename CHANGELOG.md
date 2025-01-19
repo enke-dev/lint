@@ -1,5 +1,12 @@
 # ENKE.DEV lint
 
+## [0.4.3](https://github.com/enke-dev/lint/compare/0.4.2...0.4.3) (2025-01-19)
+
+
+### Bug Fixes
+
+* attract augmented module types explicitly ([0fb3017](https://github.com/enke-dev/lint/commit/0fb30177e53e88294bfc85ef0cf0ad0c974f5dec))
+
 ## [0.4.2](https://github.com/enke-dev/lint/compare/0.4.1...0.4.2) (2025-01-19)
 
 
