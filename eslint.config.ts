@@ -66,8 +66,9 @@ export default eslintTs.config(
             // Relative imports.
             // Anything that starts with a dot.
             ['^\\.'],
-            // Inline css imports in web components.
-            ['\\.css\\?inline'],
+            // Assetic imports, most likely inline loaded style files for lit components
+            // or raw loaded files like images, meta data or fonts.
+            ['\\?(inline|raw)$'],
           ],
         },
       ],
