@@ -1,3 +1,5 @@
+/// <reference types="./eslint-plugin-import.d.ts" />
+
 import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
 import type { Linter } from 'eslint';
