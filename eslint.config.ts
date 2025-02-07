@@ -75,6 +75,8 @@ export default eslintTs.config(
         },
       ],
       'simple-import-sort/exports': 'error',
+
+      'import/consistent-type-specifier-style': ['error', 'prefer-top-level'], // type imports
       'import/first': 'error',
       'import/newline-after-import': 'error',
       'import/no-duplicates': 'error',
