@@ -1,3 +1,34 @@
+# @davidenke/lint
+
+# 0.5.0 (2025-02-07)
+
+
+### Bug Fixes
+
+* align typescript-eslint dependency type ([b5842a4](https://github.com/enke-dev/lint/commit/b5842a4f3113f713cdcc8b0583bf029c49d925f1))
+* attract augmented module types explicitly ([eba2f4e](https://github.com/enke-dev/lint/commit/eba2f4e7f8e316c4291f039d6abdb732714252ca))
+* bring back import grouping ([bfc6b5a](https://github.com/enke-dev/lint/commit/bfc6b5a70efa4997958282658ec2b4b170ece0cf))
+* configure correct rule ([3194e22](https://github.com/enke-dev/lint/commit/3194e22843dcc562ba08b4a6445f0eddcd7c5d01))
+* group assetic imports ([1b97961](https://github.com/enke-dev/lint/commit/1b97961132cf7b76e0588b2fd5397ae71df4a75c))
+* include nested lit components ([7490af7](https://github.com/enke-dev/lint/commit/7490af7c7e35c12e34c988de3493da46d5bcb53d))
+* properly config import resolver ([129e0f0](https://github.com/enke-dev/lint/commit/129e0f0e7f6bc5bbcedf71377d4f2eef805a0afc))
+* set explicit type ([14ee02d](https://github.com/enke-dev/lint/commit/14ee02db76fb595b5dee6e69bba1b5984240baec))
+
+
+### Features
+
+* align dependencies ([7d3c0c2](https://github.com/enke-dev/lint/commit/7d3c0c2157c1578af797d5a8dccc46859d84108f))
+* align type imports ([4a1eb7b](https://github.com/enke-dev/lint/commit/4a1eb7b24d00dacbefd6543430372aa8c8581f31))
+* enforce import extensions ([f2a6dfd](https://github.com/enke-dev/lint/commit/f2a6dfdebfd48978d96bb1762c855ff60ee5abfe))
+* lint json files ([3fc5950](https://github.com/enke-dev/lint/commit/3fc595018bd44ab4edf42170cdf241f5340682df))
+* unused vars in catch blocks ([f84773b](https://github.com/enke-dev/lint/commit/f84773b87ba0f7fcddaaa9f02fd32639abd0cfc0))
+* use latest eslint version ([2753f67](https://github.com/enke-dev/lint/commit/2753f67db31072f0db97e715cd92f70e13cc74cb))
+
+
+### Reverts
+
+* properly config import resolver ([b61be6f](https://github.com/enke-dev/lint/commit/b61be6f4988eb1a9a43b9ca3113d95225ad6c6d9))
+
 # ENKE.DEV lint
 
 ## [0.4.3](https://github.com/enke-dev/lint/compare/0.4.2...0.4.3) (2025-01-19)
