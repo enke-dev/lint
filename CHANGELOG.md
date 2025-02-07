@@ -1,5 +1,12 @@
 # ENKE.DEV lint
 
+## [0.4.2](https://github.com/enke-dev/lint/compare/0.4.1...0.4.2) (2025-01-19)
+
+
+### Bug Fixes
+
+* group assetic imports ([728f9c3](https://github.com/enke-dev/lint/commit/728f9c33575cf59853212da1a130a926cf54d9d2))
+
 ## [0.4.1](https://github.com/enke-dev/lint/compare/0.4.0...0.4.1) (2025-01-17)
 
 
