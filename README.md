@@ -1,4 +1,4 @@
-# ENKE.DEV lint
+# @davidenke/lint
 
 ## Install packages
 
