@@ -1,5 +1,12 @@
 # ENKE.DEV lint
 
+## [0.4.1](https://github.com/enke-dev/lint/compare/0.4.0...0.4.1) (2025-01-17)
+
+
+### Reverts
+
+* properly config import resolver ([af309fa](https://github.com/enke-dev/lint/commit/af309fa8600266e5adb09a27b8d9ab40dad1d1e1))
+
 # [0.4.0](https://github.com/enke-dev/lint/compare/0.3.0...0.4.0) (2025-01-17)
 
 
