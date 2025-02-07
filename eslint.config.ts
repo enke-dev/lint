@@ -76,6 +76,8 @@ export default eslintTs.config(
       ],
       'simple-import-sort/exports': 'error',
 
+      // TODO: not yet shipped in 2.31.0
+      // 'import/enforce-node-protocol-usage': ['error', 'always'], // enforce node: import prefix
       'import/consistent-type-specifier-style': ['error', 'prefer-top-level'], // type imports
       'import/first': 'error',
       'import/newline-after-import': 'error',
