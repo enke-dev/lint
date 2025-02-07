@@ -54,7 +54,25 @@ export default eslintTs.config(
       // import sorting
       'simple-import-sort/imports': [
         'error',
-        // { groups: [...eslintPluginSimpleImportSort.defaultGroups, ['\\.css\\?inline']] },
+        {
+          groups: [
+            // Side effect imports.
+            ['^\\u0000'],
+            // Node.js builtins prefixed with `node:`.
+            ['^node:'],
+            // Packages.
+            // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
+            ['^@?\\w'],
+            // Absolute imports and other imports such as Vue-style `@/foo`.
+            // Anything not matched in another group.
+            ['^'],
+            // Relative imports.
+            // Anything that starts with a dot.
+            ['^\\.'],
+            // Inline css imports in web components.
+            ['\\.css\\?inline'],
+          ],
+        },
       ],
       'simple-import-sort/exports': 'error',
       'import/first': 'error',
