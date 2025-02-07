@@ -1,6 +1,7 @@
 import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
 import type { Linter } from 'eslint';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginLit from 'eslint-plugin-lit';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -36,8 +37,10 @@ export default eslintTs.config(
   {
     settings: {
       'import/resolver': {
-        typescript: true,
         node: true,
+        typescript: createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
       },
     },
   },
