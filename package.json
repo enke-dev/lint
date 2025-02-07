@@ -1,6 +1,6 @@
 {
   "name": "@enke.dev/lint",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Meta package to provide linting for web projects",
   "homepage": "https://github.com/enke-dev/lint",
   "repository": {

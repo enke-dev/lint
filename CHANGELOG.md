@@ -1,5 +1,12 @@
 # ENKE.DEV lint
 
+## [0.2.1](https://github.com/enke-dev/lint/compare/0.2.0...0.2.1) (2024-12-18)
+
+
+### Bug Fixes
+
+* configure correct rule ([673d784](https://github.com/enke-dev/lint/commit/673d7847d46b289a10c9ccef055c5f1544b7a716))
+
 # [0.2.0](https://github.com/enke-dev/lint/compare/0.1.0...0.2.0) (2024-12-18)
 
 
