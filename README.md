@@ -38,6 +38,26 @@ You may want to configure VSCodes eslint plugin to use the `unstable_ts_config` 
 }
 ```
 
+Your config file can then renamed to `eslint.config.ts` and look like this:
+
+```ts
+import config from '@enke.dev/lint';
+import type { Linter } from 'eslint';
+
+export default [
+  ...config,
+  // ignore generated stuff
+  { ignores: ['src/generated'] },
+  // override rules for test files with mocha / chai
+  {
+    files: ['**/*.spec.ts'],
+    rules: {
+      '@typescript-eslint/no-unused-expressions': ['off'],
+    },
+  },
+] satisfies Linter.Config[];
+```
+
 ## Using monorepos
 
 Like the experimental typescript config flag above, the VSCode Eslint plugin can be configured to pick up the packages correctly by setting:
