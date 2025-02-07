@@ -1,5 +1,7 @@
 # @davidenke/lint
 
+## [0.5.1](https://github.com/enke-dev/lint/compare/0.5.0...0.5.1) (2025-02-07)
+
 # 0.5.0 (2025-02-07)
 
 
