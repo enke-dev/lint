@@ -1,5 +1,19 @@
 # ENKE.DEV lint
 
+# [0.4.0](https://github.com/enke-dev/lint/compare/0.3.0...0.4.0) (2025-01-17)
+
+
+### Bug Fixes
+
+* bring back import grouping ([482add6](https://github.com/enke-dev/lint/commit/482add69db46df76059286cfde08fa8819753516))
+* properly config import resolver ([1fcc0bb](https://github.com/enke-dev/lint/commit/1fcc0bb076d42a843b4770ba52979f8477f5cb6d))
+
+
+### Features
+
+* align type imports ([3486ed2](https://github.com/enke-dev/lint/commit/3486ed2d41576b403af088862f4c051da320b977))
+* enforce import extensions ([7f8da63](https://github.com/enke-dev/lint/commit/7f8da63fb42d471bbcdd2c51d17983d8bf917e0d))
+
 # [0.3.0](https://github.com/enke-dev/lint/compare/0.2.2...0.3.0) (2025-01-11)
 
 
