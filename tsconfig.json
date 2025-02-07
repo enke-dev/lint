@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "target": "ESNext",
+    "types": ["./modules.d.ts"]
+  },
+  "exclude": ["./node_modules"],
+  "include": ["./eslint.config.ts"]
+}
