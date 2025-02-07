@@ -2,10 +2,10 @@
 
 ## Install packages
 
-Make sure to install the necessary peer dependencies `eslint` and `prettier`.
+Make sure to install the necessary peer dependencies `eslint`, `prettier` and `typescript`.
 
 ```bash
-npm i -D @enke.dev/lint eslint prettier
+npm i -D @enke.dev/lint eslint prettier typescript
 ```
 
 ## Prepare config
@@ -18,27 +18,18 @@ import config from '@enke.dev/lint';
 export default config;
 ```
 
-## Using typescript
+## Using Typescript
 
-If you intend to use Typescript for your config file, you have to do some trickery right now:
+If you intend to use Typescript for your config file, you just have to install `typescript`.
 
-```bash
-# run eslint with a flag
-eslint --flag unstable_ts_config -c eslint.config.ts
+Your config file can then renamed to `eslint.config.ts` and look like this at minimum:
+
+```ts
+import config from '@enke.dev/lint';
+export default config;
 ```
 
-You may want to configure VSCodes eslint plugin to use the `unstable_ts_config` flag by default and to pick up the config file as well:
-
-```json
-{
-  "eslint.options": {
-    "flags": ["unstable_ts_config"],
-    "overrideConfigFile": "./eslint.config.ts"
-  }
-}
-```
-
-Your config file can then renamed to `eslint.config.ts` and look like this:
+But you may want to modify the config to your needs:
 
 ```ts
 import config from '@enke.dev/lint';
@@ -57,6 +48,9 @@ export default [
   },
 ] satisfies Linter.Config[];
 ```
+
+> Until eslint 9.18.0 some hacks have been necessary to make this work.
+> If your stuck to an older version, you can use a [release prior 0.3.0](https://www.npmjs.com/package/@enke.dev/lint/v/0.2.2).
 
 ## Using monorepos
 
