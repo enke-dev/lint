@@ -39,5 +39,8 @@
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-wc": "^2.2.0",
     "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "jiti": "2.4.1"
   }
 }

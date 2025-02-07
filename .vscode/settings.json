@@ -1,0 +1,6 @@
+{
+  "eslint.options": {
+    "overrideConfigFile": "eslint.config.ts",
+    "flags": ["unstable_ts_config"]
+  }
+}

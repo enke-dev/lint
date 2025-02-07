@@ -19,6 +19,8 @@ import config from '@enke.dev/lint';
 export default eslintTs.config(...config);
 ```
 
+## Using typescript
+
 If you intend to use Typescript for your config file, you have to do some trickery right now:
 
 ```bash
@@ -27,4 +29,14 @@ npm i -D jiti
 
 # run eslint with a flag
 eslint --flag unstable_ts_config -c eslint.config.ts
+```
+
+You may want to configure VSCodes eslint plugin to use the `unstable_ts_config` flag by default:
+
+```json
+{
+  "eslint.options": {
+    "unstable_ts_config": true
+  }
+}
 ```
