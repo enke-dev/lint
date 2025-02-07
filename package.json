@@ -1,5 +1,5 @@
 {
-  "name": "@enke.dev/lint",
+  "name": "@davidenke/lint",
   "version": "0.4.3",
   "description": "Meta package to provide linting for web projects",
   "homepage": "https://github.com/enke-dev/lint",
@@ -19,7 +19,10 @@
   "scripts": {
     "build": "tsc"
   },
-  "author": "David Enke",
+  "author": {
+    "name": "David Enke",
+    "email": "post@davidenke.de"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
