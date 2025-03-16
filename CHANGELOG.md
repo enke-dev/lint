@@ -1,5 +1,12 @@
 # @davidenke/lint
 
+## [0.5.2](https://github.com/enke-dev/lint/compare/0.5.1...0.5.2) (2025-03-16)
+
+
+### Bug Fixes
+
+* avoid quote escape conflict with prettier ([eea5fea](https://github.com/enke-dev/lint/commit/eea5feae103b77d56e2f407201359949e0cd586a))
+
 ## [0.5.1](https://github.com/enke-dev/lint/compare/0.5.0...0.5.1) (2025-02-07)
 
 # 0.5.0 (2025-02-07)
