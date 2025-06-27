@@ -1,21 +1,25 @@
-/// <reference types="./eslint-plugin-import.d.ts" />
+/// <reference types="./eslint-plugins.d.ts" />
 
+import { fixupPluginRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
 import type { Linter } from 'eslint';
 import eslintPluginImport from 'eslint-plugin-import';
-import eslintPluginLit from 'eslint-plugin-lit';
+import { configs as eslintPluginLitConfigs } from 'eslint-plugin-lit';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
-import eslintPluginWC from 'eslint-plugin-wc';
+import { configs as eslintPluginWebComponentsConfigs } from 'eslint-plugin-wc';
 import eslintTs from 'typescript-eslint';
 
 export default eslintTs.config(
   eslintJs.configs.recommended,
-  ...eslintTs.configs.recommended,
+  ...eslintTs.configs.strict,
+  ...eslintTs.configs.stylistic,
   eslintPluginPrettierRecommended,
   eslintPluginImport.flatConfigs.recommended,
+  eslintPluginLitConfigs['flat/recommended'],
+  eslintPluginWebComponentsConfigs['flat/recommended'],
   {
     ignores: ['node_modules/', 'dist/', 'lib/'],
   },
@@ -102,13 +106,5 @@ export default eslintTs.config(
     ignores: ['package-lock.json'],
     language: 'json/json',
     rules: { 'no-irregular-whitespace': 'off' },
-  },
-  // lit web components
-  {
-    files: ['**/*.component.ts', '**/*.component.tsx'],
-    extends: [
-      eslintPluginWC.configs['flat/recommended'],
-      eslintPluginLit.configs['flat/recommended'],
-    ],
   },
 ) as Linter.Config[];
