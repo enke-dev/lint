@@ -1,5 +1,12 @@
 # @davidenke/lint
 
+## [0.6.1](https://github.com/enke-dev/lint/compare/0.6.0...0.6.1) (2025-06-27)
+
+
+### Bug Fixes
+
+* attract dependency propery ([9a3a4df](https://github.com/enke-dev/lint/commit/9a3a4df275d0240573f2ed60f27009cc847ad852))
+
 # [0.6.0](https://github.com/enke-dev/lint/compare/0.5.2...0.6.0) (2025-06-27)
 
 
