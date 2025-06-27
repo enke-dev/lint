@@ -40,7 +40,6 @@ export default eslintTs.config(
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
       'unused-imports': eslintPluginUnusedImports,
-      'import-extensions': fixupPluginRules(eslintPluginImportExtension),
     },
   },
   {
@@ -104,6 +103,14 @@ export default eslintTs.config(
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrors: 'none' },
       ],
       'unused-imports/no-unused-imports': 'error',
+    },
+  },
+  // Limit the hacky import extension to only JS and TS files to
+  // prevent errors in other, e.g. JSON, files.
+  {
+    files: ['**/*.js', '**/*.ts'],
+    plugins: {
+      'import-extensions': fixupPluginRules(eslintPluginImportExtension),
     },
   },
   // json files
