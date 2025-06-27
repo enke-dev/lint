@@ -1,5 +1,12 @@
 # @davidenke/lint
 
+## [0.6.3](https://github.com/enke-dev/lint/compare/0.6.2...0.6.3) (2025-06-27)
+
+
+### Bug Fixes
+
+* explicitly exclude import endings from json files ([9fb7466](https://github.com/enke-dev/lint/commit/9fb74666b90c65f8a8bf64a8fd88569f7444661b))
+
 ## [0.6.2](https://github.com/enke-dev/lint/compare/0.6.1...0.6.2) (2025-06-27)
 
 
