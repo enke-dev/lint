@@ -40,6 +40,7 @@ export default eslintTs.config(
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
       'unused-imports': eslintPluginUnusedImports,
+      'import-extensions': fixupPluginRules(eslintPluginImportExtension),
     },
   },
   {
@@ -105,20 +106,16 @@ export default eslintTs.config(
       'unused-imports/no-unused-imports': 'error',
     },
   },
-  // Limit the hacky import extension to only JS and TS files to
-  // prevent errors in other, e.g. JSON, files.
-  {
-    files: ['**/*.js', '**/*.ts'],
-    plugins: {
-      'import-extensions': fixupPluginRules(eslintPluginImportExtension),
-    },
-  },
   // json files
   {
     ...eslintJson.configs.recommended,
     files: ['**/*.json'],
     ignores: ['package-lock.json'],
     language: 'json/json',
-    rules: { 'no-irregular-whitespace': 'off' },
+    rules: {
+      'no-irregular-whitespace': 'off',
+      'import-extensions/require-extensions': 'off',
+      'import-extensions/require-index': 'off',
+    },
   },
 ) as Linter.Config[];
