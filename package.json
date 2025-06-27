@@ -10,7 +10,7 @@
   "files": [
     "eslint.config.js",
     "eslint.config.d.ts",
-    "eslint-plugin-import.d.ts",
+    "eslint-plugins.d.ts",
     "README.md"
   ],
   "type": "module",

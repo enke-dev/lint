@@ -5,6 +5,7 @@ import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
 import type { Linter } from 'eslint';
 import eslintPluginImport from 'eslint-plugin-import';
+import eslintPluginImportExtension from 'eslint-plugin-import-extensions';
 import { configs as eslintPluginLitConfigs } from 'eslint-plugin-lit';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
@@ -37,6 +38,7 @@ export default eslintTs.config(
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
       'unused-imports': eslintPluginUnusedImports,
+      'import-extensions': fixupPluginRules(eslintPluginImportExtension),
     },
   },
   {
@@ -79,6 +81,9 @@ export default eslintTs.config(
         },
       ],
       'simple-import-sort/exports': 'error',
+      // import extensions
+      'import-extensions/require-extensions': ['error', { expectedExtensions: ['js'] }],
+      'import-extensions/require-index': ['error', { expectedExtensions: ['js'] }],
 
       // TODO: not yet shipped in 2.31.0
       // 'import/enforce-node-protocol-usage': ['error', 'always'], // enforce node: import prefix
