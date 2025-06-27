@@ -1,5 +1,14 @@
 # @davidenke/lint
 
+# [0.6.0](https://github.com/enke-dev/lint/compare/0.5.2...0.6.0) (2025-06-27)
+
+
+### Features
+
+* import file extensions ([38842b6](https://github.com/enke-dev/lint/commit/38842b6fedbc892ad90002489a631f389fb654a1))
+* lint package json ([6cfb739](https://github.com/enke-dev/lint/commit/6cfb739551a76f89c82b5a2504da02f79737dde5))
+* node import prefixes ([724a8c4](https://github.com/enke-dev/lint/commit/724a8c4e6b59ad8a6e9843d7da452ed45af88591))
+
 ## [0.5.2](https://github.com/enke-dev/lint/compare/0.5.1...0.5.2) (2025-03-16)
 
 
