@@ -85,8 +85,8 @@ export default eslintTs.config(
       'import-extensions/require-extensions': ['error', { expectedExtensions: ['js'] }],
       'import-extensions/require-index': ['error', { expectedExtensions: ['js'] }],
 
-      // TODO: not yet shipped in 2.31.0
-      // 'import/enforce-node-protocol-usage': ['error', 'always'], // enforce node: import prefix
+      // import rules
+      'import/enforce-node-protocol-usage': ['error', 'always'], // enforce node: import prefix
       'import/consistent-type-specifier-style': ['error', 'prefer-top-level'], // type imports
       'import/first': 'error',
       'import/newline-after-import': 'error',
