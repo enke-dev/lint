@@ -1,5 +1,12 @@
 # @davidenke/lint
 
+## [0.6.2](https://github.com/enke-dev/lint/compare/0.6.1...0.6.2) (2025-06-27)
+
+
+### Bug Fixes
+
+* hacky import ending plugin usage ([9509197](https://github.com/enke-dev/lint/commit/950919728a31c91dc37aebe6753b6763d5e96bb1))
+
 ## [0.6.1](https://github.com/enke-dev/lint/compare/0.6.0...0.6.1) (2025-06-27)
 
 
