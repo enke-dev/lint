@@ -7,6 +7,7 @@ import type { Linter } from 'eslint';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginImportExtension from 'eslint-plugin-import-extensions';
 import { configs as eslintPluginLitConfigs } from 'eslint-plugin-lit';
+import eslintPluginPackageJson from 'eslint-plugin-package-json';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
@@ -19,6 +20,7 @@ export default eslintTs.config(
   ...eslintTs.configs.stylistic,
   eslintPluginPrettierRecommended,
   eslintPluginImport.flatConfigs.recommended,
+  eslintPluginPackageJson.configs.recommended,
   eslintPluginLitConfigs['flat/recommended'],
   eslintPluginWebComponentsConfigs['flat/recommended'],
   {
