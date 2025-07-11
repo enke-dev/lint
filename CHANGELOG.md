@@ -1,5 +1,7 @@
 # @enke/lint
 
+## [0.6.4](https://github.com/enke-dev/lint/compare/0.6.3...0.6.4) (2025-07-11)
+
 ## [0.6.3](https://github.com/enke-dev/lint/compare/0.6.2...0.6.3) (2025-06-27)
 
 
