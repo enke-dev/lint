@@ -45,7 +45,7 @@ jobs:
             --git.commitMessage='chore: release v${version}' \
             --git.pushArgs=--follow-tags \
             --plugins.@release-it/conventional-changelog.infile=CHANGELOG.md \
-            --plugins.@release-it/conventional-changelog.header='# @davidenke/lint' \
+            --plugins.@release-it/conventional-changelog.header='# @enke/lint' \
             --plugins.@release-it/conventional-changelog.preset=angular
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

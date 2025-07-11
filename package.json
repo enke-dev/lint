@@ -1,5 +1,5 @@
 {
-  "name": "@davidenke/lint",
+  "name": "@enke.dev/lint",
   "version": "0.6.3",
   "description": "Meta package to provide linting for web projects",
   "homepage": "https://github.com/enke-dev/lint",
@@ -21,7 +21,7 @@
   },
   "author": {
     "name": "David Enke",
-    "email": "post@davidenke.de"
+    "email": "david@enke.dev"
   },
   "license": "MIT",
   "publishConfig": {

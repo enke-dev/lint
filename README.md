@@ -1,11 +1,11 @@
-# @davidenke/lint
+# @enke/lint
 
 ## Install packages
 
 Make sure to install the necessary peer dependencies `eslint`, `prettier` and `typescript`.
 
 ```bash
-npm i -D @davidenke/lint eslint prettier typescript
+npm i -D @enke/lint eslint prettier typescript
 ```
 
 ## Prepare config
@@ -13,7 +13,7 @@ npm i -D @davidenke/lint eslint prettier typescript
 Create a `eslint.config.js` file in the root of your project and add the following content:
 
 ```js
-import config from '@davidenke/lint';
+import config from '@enke/lint';
 
 export default config;
 ```
@@ -25,14 +25,14 @@ If you intend to use Typescript for your config file, you just have to install `
 Your config file can then renamed to `eslint.config.ts` and look like this at minimum:
 
 ```ts
-import config from '@davidenke/lint';
+import config from '@enke/lint';
 export default config;
 ```
 
 But you may want to modify the config to your needs:
 
 ```ts
-import config from '@davidenke/lint';
+import config from '@enke/lint';
 import type { Linter } from 'eslint';
 
 export default [
@@ -50,7 +50,7 @@ export default [
 ```
 
 > Until eslint 9.18.0 some hacks have been necessary to make this work.
-> If your stuck to an older version, you can use a [release prior 0.3.0](https://www.npmjs.com/package/@davidenke/lint/v/0.2.2).
+> If your stuck to an older version, you can use a [release prior 0.3.0](https://www.npmjs.com/package/@enke/lint/v/0.2.2).
 
 ## Using monorepos
 

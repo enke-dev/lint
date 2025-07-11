@@ -1,4 +1,4 @@
-# @davidenke/lint
+# @enke/lint
 
 ## [0.6.3](https://github.com/enke-dev/lint/compare/0.6.2...0.6.3) (2025-06-27)
 
