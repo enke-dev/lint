@@ -17,6 +17,7 @@
   "main": "eslint.config.js",
   "types": "eslint.config.d.ts",
   "scripts": {
+    "lint": "eslint -c eslint.config.ts ./eslint.config.ts",
     "build": "tsc"
   },
   "author": {
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@types/node": "22.15.33",
+    "jiti": "2.5.1",
     "typescript": "5.8.3"
   }
 }
