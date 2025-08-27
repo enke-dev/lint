@@ -32,7 +32,7 @@ export default eslintTs.config(
         ecmaVersion: 'latest',
         project: true,
         sourceType: 'module',
-        tsconfigRootDir: './',
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },
