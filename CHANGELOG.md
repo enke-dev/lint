@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.7.2](https://github.com/enke-dev/lint/compare/0.7.1...0.7.2) (2025-08-27)
+
+
+### Bug Fixes
+
+* remove parser options entirely ([71dd743](https://github.com/enke-dev/lint/commit/71dd74394ae4792c0ce2331e1858033466d54cdd))
+
 ## [0.7.1](https://github.com/enke-dev/lint/compare/0.7.0...0.7.1) (2025-08-27)
 
 
