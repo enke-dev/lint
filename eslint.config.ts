@@ -27,16 +27,6 @@ export default eslintTs.config(
     ignores: ['node_modules/', 'dist/', 'lib/'],
   },
   {
-    languageOptions: {
-      parserOptions: {
-        ecmaVersion: 'latest',
-        project: true,
-        sourceType: 'module',
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-  },
-  {
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
       'unused-imports': eslintPluginUnusedImports,
