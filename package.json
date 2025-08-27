@@ -8,6 +8,7 @@
     "url": "git+https://github.com/enke-dev/lint.git"
   },
   "files": [
+    ".stylelintrc.json",
     "eslint.config.js",
     "eslint.config.d.ts",
     "eslint-plugins.d.ts",
