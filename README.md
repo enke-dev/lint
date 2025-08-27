@@ -1,11 +1,11 @@
-# @enke/lint
+# @enke.dev/lint
 
 ## Install packages
 
 Make sure to install the necessary peer dependencies `eslint`, `prettier` and `typescript`.
 
 ```bash
-npm i -D @enke/lint eslint prettier typescript
+npm i -D @enke.dev/lint eslint prettier typescript
 ```
 
 ## Prepare config
@@ -13,7 +13,7 @@ npm i -D @enke/lint eslint prettier typescript
 Create a `eslint.config.js` file in the root of your project and add the following content:
 
 ```js
-import config from '@enke/lint';
+import config from '@enke.dev/lint';
 
 export default config;
 ```
@@ -25,14 +25,14 @@ If you intend to use Typescript for your config file, you just have to install `
 Your config file can then renamed to `eslint.config.ts` and look like this at minimum:
 
 ```ts
-import config from '@enke/lint';
+import config from '@enke.dev/lint';
 export default config;
 ```
 
 But you may want to modify the config to your needs:
 
 ```ts
-import config from '@enke/lint';
+import config from '@enke.dev/lint';
 import type { Linter } from 'eslint';
 
 export default [
