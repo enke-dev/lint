@@ -1,5 +1,12 @@
 # @enke/lint
 
+# [0.7.0](https://github.com/enke-dev/lint/compare/0.6.6...0.7.0) (2025-08-27)
+
+
+### Features
+
+* add optional stylelint ([ce39fa1](https://github.com/enke-dev/lint/commit/ce39fa1e0bfa076034b33d860fd64ed02b9b9a7e))
+
 ## [0.6.6](https://github.com/enke-dev/lint/compare/0.6.5...0.6.6) (2025-08-27)
 
 ## [0.6.5](https://github.com/enke-dev/lint/compare/0.6.4...0.6.5) (2025-08-27)
