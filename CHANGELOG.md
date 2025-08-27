@@ -1,5 +1,13 @@
 # @enke/lint
 
+## [0.7.1](https://github.com/enke-dev/lint/compare/0.7.0...0.7.1) (2025-08-27)
+
+
+### Bug Fixes
+
+* add stylelint config to package ([2cd4cea](https://github.com/enke-dev/lint/commit/2cd4cea16e79a853e281e1acd6ed4d92d473938e))
+* align default path to tsconfig.json ([342f58d](https://github.com/enke-dev/lint/commit/342f58da5c3520c4fdacbdd0c34df4a3358407bb))
+
 # [0.7.0](https://github.com/enke-dev/lint/compare/0.6.6...0.7.0) (2025-08-27)
 
 
