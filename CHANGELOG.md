@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.7.3](https://github.com/enke-dev/lint/compare/0.7.2...0.7.3) (2025-08-28)
+
+
+### Bug Fixes
+
+* **style:** prevent empty line between comment and block ([4eb91ab](https://github.com/enke-dev/lint/commit/4eb91abc31cddc5d1912cb7e36d4919131ff8541))
+
 ## [0.7.2](https://github.com/enke-dev/lint/compare/0.7.1...0.7.2) (2025-08-27)
 
 
