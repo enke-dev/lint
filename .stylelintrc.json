@@ -8,7 +8,10 @@
       }
     ],
     "declaration-empty-line-before": null,
-    "rule-empty-line-before": ["always-multi-line", { "except": ["first-nested"] }],
+    "rule-empty-line-before": [
+      "always-multi-line",
+      { "except": ["after-single-line-comment", "first-nested"] }
+    ],
     "plugin/rational-order": [
       true,
       {
