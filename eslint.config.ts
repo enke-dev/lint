@@ -24,7 +24,7 @@ export default eslintTs.config(
   eslintPluginLitConfigs['flat/recommended'],
   eslintPluginWebComponentsConfigs['flat/recommended'],
   {
-    ignores: ['node_modules/', 'dist/', 'lib/'],
+    ignores: ['node_modules/', 'dist/'],
   },
   {
     plugins: {
