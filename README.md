@@ -61,3 +61,17 @@ Like the experimental typescript config flag above, the VSCode Eslint plugin can
   "eslint.workingDirectories": ["./packages/foo", "./packages/bar"]
 }
 ```
+
+## Stylelint (experimental)
+
+Using a shared Stylelint config with two major presets, `stylelint-config-standard-scss` and `stylelint-config-rational-order`.
+
+For now, no TypeScript support is included.
+
+Create a `stylelint.config.js` file in the root of your project and add the following content:
+
+```js
+import { defineConfig } from '@enke.dev/lint/stylelint.config.js';
+
+export default defineConfig('kvlm');
+```
