@@ -66,7 +66,11 @@ Like the experimental typescript config flag above, the VSCode Eslint plugin can
 
 Using a shared Stylelint config with two major presets, `stylelint-config-standard-scss` and `stylelint-config-rational-order`.
 
-For now, no TypeScript support is included.
+As this is totally opt-in, all required dependencies must be installed:
+
+```bash
+npm i -D stylelint stylelint-config-rational-order stylelint-config-standard-scss stylelint-order
+```
 
 Create a `stylelint.config.js` file in the root of your project and add the following content:
 
@@ -77,3 +81,5 @@ import { defineConfig } from '@enke.dev/lint/stylelint.config.js';
 
 export default defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
 ```
+
+For now, no TypeScript support is included.
