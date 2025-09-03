@@ -71,7 +71,9 @@ For now, no TypeScript support is included.
 Create a `stylelint.config.js` file in the root of your project and add the following content:
 
 ```js
+// @ts-check
+
 import { defineConfig } from '@enke.dev/lint/stylelint.config.js';
 
-export default defineConfig('kvlm');
+export default defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
 ```
