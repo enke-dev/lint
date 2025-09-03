@@ -34,6 +34,12 @@ export default eslintTs.config(
     },
   },
   {
+    languageOptions: {
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: __dirname,
+      },
+    },
     settings: {
       'import/resolver': {
         typescript: true,
