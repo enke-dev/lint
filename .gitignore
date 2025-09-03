@@ -1,5 +1,9 @@
 .DS_Store
 
 /node_modules
+
 /eslint.config.d.ts
 /eslint.config.js
+
+/stylelint.config.d.ts
+/stylelint.config.js
