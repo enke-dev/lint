@@ -1,5 +1,12 @@
 # @enke/lint
 
+# [0.8.0](https://github.com/enke-dev/lint/compare/0.7.7...0.8.0) (2025-09-03)
+
+
+### Features
+
+* **stylelint:** configurable custom property prefixes ([894dfdc](https://github.com/enke-dev/lint/commit/894dfdcb6bff1a45694bfa55407fbd043c286a22))
+
 ## [0.7.7](https://github.com/enke-dev/lint/compare/0.7.6...0.7.7) (2025-09-01)
 
 ## [0.7.6](https://github.com/enke-dev/lint/compare/0.7.5...0.7.6) (2025-09-01)
