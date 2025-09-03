@@ -1,5 +1,13 @@
 # @enke/lint
 
+## [0.8.3](https://github.com/enke-dev/lint/compare/0.8.2...0.8.3) (2025-09-03)
+
+
+### Bug Fixes
+
+* no lib ignore ([1eea6ea](https://github.com/enke-dev/lint/commit/1eea6eaceeed9de57b876867a1c941b6cf92ec18))
+* set tsconfig root dir ([c993072](https://github.com/enke-dev/lint/commit/c99307258f5e9a5bb6f38cf4dbc9101c3b872825))
+
 ## [0.8.2](https://github.com/enke-dev/lint/compare/0.8.1...0.8.2) (2025-09-03)
 
 
