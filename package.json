@@ -19,7 +19,7 @@
   "main": "eslint.config.js",
   "types": "eslint.config.d.ts",
   "scripts": {
-    "lint": "eslint -c eslint.config.ts ./eslint.config.ts",
+    "lint": "eslint -c eslint.config.ts ./*.config.ts",
     "build": "tsc"
   },
   "author": {
