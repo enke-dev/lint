@@ -1,5 +1,7 @@
 # @enke/lint
 
+## [0.8.4](https://github.com/enke-dev/lint/compare/0.8.3...0.8.4) (2025-09-08)
+
 ## [0.8.3](https://github.com/enke-dev/lint/compare/0.8.2...0.8.3) (2025-09-03)
 
 
