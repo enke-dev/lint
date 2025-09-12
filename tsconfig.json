@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "esModuleInterop": true,
     "isolatedModules": false,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "esnext"
   },
   "exclude": ["./node_modules"]
 }

@@ -9,7 +9,7 @@ import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginImportExtension from 'eslint-plugin-import-extensions';
 import { configs as eslintPluginLitConfigs } from 'eslint-plugin-lit';
 import { configs as eslintPluginLitA11yConfigs } from 'eslint-plugin-lit-a11y';
-import eslintPluginPackageJson from 'eslint-plugin-package-json';
+import { configs as eslintPluginPackageJsonConfigs } from 'eslint-plugin-package-json';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
@@ -22,31 +22,45 @@ export default defineConfig([
   ...eslintTs.configs.stylistic,
   eslintPluginPrettierRecommended,
   eslintPluginImport.flatConfigs.recommended,
-  eslintPluginPackageJson.configs.recommended,
-  eslintPluginLitConfigs['flat/recommended'],
-  eslintPluginWebComponentsConfigs['flat/recommended'],
-  eslintPluginLitA11yConfigs.recommended,
+
   {
     ignores: ['node_modules/', 'dist/'],
   },
+
+  // Javascript and Typescript files
   {
+    files: ['**/*.{js,ts}'],
+    ...eslintPluginWebComponentsConfigs['flat/recommended'],
+    ...eslintPluginLitConfigs['flat/recommended'],
+    ...eslintPluginLitA11yConfigs.recommended,
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
       'unused-imports': eslintPluginUnusedImports,
       'import-extensions': fixupPluginRules(eslintPluginImportExtension),
     },
-  },
-  {
     languageOptions: {
       parserOptions: {
+        ecmaVersion: 'latest',
         project: true,
+        requireConfigFile: false,
+        sourceType: 'module',
         tsconfigRootDir: import.meta.dirname,
       },
     },
-  },
-  {
+    settings: {
+      'import/resolver': {
+        typescript: true,
+        node: true,
+      },
+      litHtmlSources: true,
+    },
     rules: {
       // formatting
+      '@typescript-eslint/no-unused-expressions': [
+        'error',
+        { allowShortCircuit: true, allowTernary: true },
+      ],
+      curly: 'error',
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'always'],
@@ -97,23 +111,31 @@ export default defineConfig([
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrors: 'none' },
       ],
       'unused-imports/no-unused-imports': 'error',
+
+      // web components / a11y
+      'wc/guard-super-call': 'off',
     },
   },
-  // html files
+
+  // HTML files
   {
     files: ['**/*.html'],
     plugins: { html: eslintPluginHtml },
   },
-  // json files
+
+  // JSON files
   {
+    ...eslintPluginPackageJsonConfigs.recommended,
     ...eslintJson.configs.recommended,
-    files: ['**/*.json'],
     ignores: ['package-lock.json'],
     language: 'json/json',
     rules: {
       'no-irregular-whitespace': 'off',
       'import-extensions/require-extensions': 'off',
       'import-extensions/require-index': 'off',
+    },
+    settings: {
+      'html/html-extensions': ['.html'],
     },
   },
 ]);
