@@ -1,5 +1,13 @@
 # @enke/lint
 
+# [0.9.0](https://github.com/enke-dev/lint/compare/0.8.4...0.9.0) (2025-09-12)
+
+
+### Features
+
+* add html plugin ([7b0bbaa](https://github.com/enke-dev/lint/commit/7b0bbaae6e6cf5c2534ceeba83716302aec65fba))
+* add lit-a11y plugin ([958adc5](https://github.com/enke-dev/lint/commit/958adc531cd88627ee4b688b954eb7c83de55671))
+
 ## [0.8.4](https://github.com/enke-dev/lint/compare/0.8.3...0.8.4) (2025-09-08)
 
 ## [0.8.3](https://github.com/enke-dev/lint/compare/0.8.2...0.8.3) (2025-09-03)
