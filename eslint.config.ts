@@ -3,7 +3,7 @@
 import { fixupPluginRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
-import type { Linter } from 'eslint';
+import { defineConfig } from 'eslint/config';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginImportExtension from 'eslint-plugin-import-extensions';
 import { configs as eslintPluginLitConfigs } from 'eslint-plugin-lit';
@@ -15,7 +15,7 @@ import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import { configs as eslintPluginWebComponentsConfigs } from 'eslint-plugin-wc';
 import eslintTs from 'typescript-eslint';
 
-export default eslintTs.config(
+export default defineConfig([
   eslintJs.configs.recommended,
   ...eslintTs.configs.strict,
   ...eslintTs.configs.stylistic,
@@ -110,4 +110,4 @@ export default eslintTs.config(
       'import-extensions/require-index': 'off',
     },
   },
-) as Linter.Config[];
+]);
