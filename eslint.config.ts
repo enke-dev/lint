@@ -4,6 +4,7 @@ import { fixupPluginRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
 import { defineConfig } from 'eslint/config';
+import eslintPluginHtml from 'eslint-plugin-html';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginImportExtension from 'eslint-plugin-import-extensions';
 import { configs as eslintPluginLitConfigs } from 'eslint-plugin-lit';
@@ -97,6 +98,11 @@ export default defineConfig([
       ],
       'unused-imports/no-unused-imports': 'error',
     },
+  },
+  // html files
+  {
+    files: ['**/*.html'],
+    plugins: { html: eslintPluginHtml },
   },
   // json files
   {
