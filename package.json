@@ -20,6 +20,7 @@
   "types": "eslint.config.d.ts",
   "scripts": {
     "lint": "eslint -c eslint.config.ts ./*.config.ts",
+    "inspect": "./node_modules/.bin/eslint-config-inspector --config eslint.config.ts",
     "dev": "tsc --watch",
     "build": "tsc"
   },
@@ -58,6 +59,7 @@
     "eslint-plugin-wc": "^3.0.1"
   },
   "devDependencies": {
+    "@eslint/config-inspector": "1.2.0",
     "@eslint/js": "9.35.0",
     "@types/node": "24.3.1",
     "eslint": "9.35.0",
