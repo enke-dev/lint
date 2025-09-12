@@ -17,3 +17,19 @@ declare module 'eslint-plugin-import' {
 
   export default js;
 }
+
+declare module 'eslint-plugin-lit-a11y' {
+  import type { ESLint, Linter } from 'eslint';
+
+  export const configs: {
+    readonly recommended: {
+      readonly rules: Readonly<Linter.RulesRecord>;
+    };
+  };
+
+  const plugin: ESLint.Plugin & {
+    readonly configs;
+  };
+
+  export default plugin;
+}
