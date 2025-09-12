@@ -39,13 +39,7 @@ export default eslintTs.config(
     languageOptions: {
       parserOptions: {
         project: true,
-        tsconfigRootDir: __dirname,
-      },
-    },
-    settings: {
-      'import/resolver': {
-        typescript: true,
-        node: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },
