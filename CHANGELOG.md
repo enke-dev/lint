@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.9.1](https://github.com/enke-dev/lint/compare/0.9.0...0.9.1) (2025-09-13)
+
+
+### Bug Fixes
+
+* align dependencies ([6781a15](https://github.com/enke-dev/lint/commit/6781a15a35e6575e9c74e7d70932685a39e7237c))
+
 # [0.9.0](https://github.com/enke-dev/lint/compare/0.8.4...0.9.0) (2025-09-12)
 
 
