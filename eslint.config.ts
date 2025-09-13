@@ -41,10 +41,7 @@ export default defineConfig([
     languageOptions: {
       parserOptions: {
         ecmaVersion: 'latest',
-        project: true,
-        requireConfigFile: false,
         sourceType: 'module',
-        tsconfigRootDir: import.meta.dirname,
       },
     },
     settings: {

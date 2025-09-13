@@ -33,25 +33,16 @@ Your config file can then be renamed to `eslint.config.ts` and look like this at
 ```ts
 import config from '@enke.dev/lint';
 
-export default config;
-```
-
-You may want to modify the config to your needs, e.g. like this:
-
-```ts
-import config from '@enke.dev/lint';
-import { defineConfig } from 'eslint/config';
-
 export default defineConfig([
   // extend the base config
   ...config,
-  // ignore generated stuff
-  { ignores: ['src/generated'] },
-  // override rules for test files with mocha / chai
+  // configure typescript parser to your needs
   {
-    files: ['**/*.spec.ts'],
-    rules: {
-      '@typescript-eslint/no-unused-expressions': ['off'],
+    languageOptions: {
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
   },
 ]);
