@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.9.2](https://github.com/enke-dev/lint/compare/0.9.1...0.9.2) (2025-09-13)
+
+
+### Bug Fixes
+
+* typescript parser config ([71deb28](https://github.com/enke-dev/lint/commit/71deb2840d0876ce62c6984950bc99b113a79bd3))
+
 ## [0.9.1](https://github.com/enke-dev/lint/compare/0.9.0...0.9.1) (2025-09-13)
 
 
