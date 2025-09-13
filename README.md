@@ -2,13 +2,19 @@
 
 ## Install packages
 
-Make sure to install the necessary peer dependencies `eslint`, `prettier` and `typescript`.
+Make sure to install the necessary peer dependencies:
 
 ```bash
-npm i -D @enke.dev/lint eslint prettier typescript
+npm i -D @enke.dev/lint eslint prettier
 ```
 
-## Prepare config
+For Typescript support, install:
+
+```bash
+npm i -D @enke.dev/lint eslint prettier typescript jiti
+```
+
+## Prepare Eslint config
 
 Create a `eslint.config.js` file in the root of your project and add the following content:
 
@@ -18,24 +24,26 @@ import config from '@enke.dev/lint';
 export default config;
 ```
 
-## Using Typescript
+### Using Typescript
 
-If you intend to use Typescript for your config file, you just have to install `typescript`.
+If you intend to use Typescript for your config file, you just have to install `typescript` and `jiti`.
 
-Your config file can then renamed to `eslint.config.ts` and look like this at minimum:
+Your config file can then be renamed to `eslint.config.ts` and look like this at minimum:
 
 ```ts
 import config from '@enke.dev/lint';
+
 export default config;
 ```
 
-But you may want to modify the config to your needs:
+You may want to modify the config to your needs, e.g. like this:
 
 ```ts
 import config from '@enke.dev/lint';
-import type { Linter } from 'eslint';
+import { defineConfig } from 'eslint/config';
 
-export default [
+export default defineConfig([
+  // extend the base config
   ...config,
   // ignore generated stuff
   { ignores: ['src/generated'] },
@@ -46,27 +54,25 @@ export default [
       '@typescript-eslint/no-unused-expressions': ['off'],
     },
   },
-] satisfies Linter.Config[];
+]);
 ```
 
-> Until eslint 9.18.0 some hacks have been necessary to make this work.
-> If your stuck to an older version, you can use a [release prior 0.3.0](https://www.npmjs.com/package/@enke/lint/v/0.2.2).
+### Using Monorepos
 
-## Using monorepos
-
-Like the experimental typescript config flag above, the VSCode Eslint plugin can be configured to pick up the packages correctly by setting:
+The VSCode Eslint plugin can be configured to pick up packages correctly by updating your `settings.json`, e.g.:
 
 ```json
 {
-  "eslint.workingDirectories": ["./packages/foo", "./packages/bar"]
+  "eslint.workingDirectories": ["./packages/*"]
 }
 ```
 
-## Stylelint (experimental)
+## Prepare Stylelint config (experimental)
 
-Using a shared Stylelint config with two major presets, `stylelint-config-standard-scss` and `stylelint-config-rational-order`.
+Uses some common presets and can be used in CSS, SASS and SCSS files.\
+It will enforce a specific property order and specific custom property prefixes if configured.
 
-As this is totally opt-in, all required dependencies must be installed:
+As this is totally opt-in, all necessary dependencies must be installed first:
 
 ```bash
 npm i -D stylelint stylelint-config-rational-order stylelint-config-standard-scss stylelint-order
@@ -82,4 +88,4 @@ import { defineConfig } from '@enke.dev/lint/stylelint.config.js';
 export default defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
 ```
 
-For now, no TypeScript support is included.
+For now, [no TypeScript support](https://github.com/stylelint/stylelint/issues/4940) is possible.
