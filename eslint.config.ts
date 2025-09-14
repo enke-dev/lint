@@ -3,8 +3,9 @@
 import { fixupPluginRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
+import eslintPluginHtml from '@html-eslint/eslint-plugin';
 import { defineConfig } from 'eslint/config';
-import eslintPluginHtml from 'eslint-plugin-html';
+import eslintPluginHtmlScripts from 'eslint-plugin-html';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginImportExtension from 'eslint-plugin-import-extensions';
 import { configs as eslintPluginLitConfigs } from 'eslint-plugin-lit';
@@ -17,9 +18,6 @@ import { configs as eslintPluginWebComponentsConfigs } from 'eslint-plugin-wc';
 import eslintTs from 'typescript-eslint';
 
 export default defineConfig([
-  eslintJs.configs.recommended,
-  ...eslintTs.configs.strict,
-  ...eslintTs.configs.stylistic,
   eslintPluginPrettierRecommended,
   eslintPluginImport.flatConfigs.recommended,
 
@@ -30,13 +28,20 @@ export default defineConfig([
   // Javascript and Typescript files
   {
     files: ['**/*.{js,ts}'],
-    ...eslintPluginWebComponentsConfigs['flat/recommended'],
-    ...eslintPluginLitConfigs['flat/recommended'],
-    ...eslintPluginLitA11yConfigs.recommended,
+    extends: [
+      eslintJs.configs.recommended,
+      ...eslintTs.configs.strict,
+      ...eslintTs.configs.stylistic,
+      eslintPluginWebComponentsConfigs['flat/recommended'],
+      eslintPluginLitConfigs['flat/recommended'],
+      eslintPluginLitA11yConfigs.recommended,
+      'html/recommended',
+    ],
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
       'unused-imports': eslintPluginUnusedImports,
       'import-extensions': fixupPluginRules(eslintPluginImportExtension),
+      html: eslintPluginHtml,
     },
     languageOptions: {
       parserOptions: {
@@ -114,10 +119,12 @@ export default defineConfig([
     },
   },
 
-  // HTML files
+  // HTML files (JS and HTML itself)
   {
     files: ['**/*.html'],
-    plugins: { html: eslintPluginHtml },
+    plugins: { htmlScripts: eslintPluginHtmlScripts, html: eslintPluginHtml },
+    extends: ['html/recommended'],
+    language: 'html/html',
   },
 
   // JSON files
@@ -127,7 +134,6 @@ export default defineConfig([
     ignores: ['package-lock.json'],
     language: 'json/json',
     rules: {
-      'no-irregular-whitespace': 'off',
       'import-extensions/require-extensions': 'off',
       'import-extensions/require-index': 'off',
     },

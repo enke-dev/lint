@@ -64,6 +64,8 @@
   },
   "devDependencies": {
     "@eslint/config-inspector": "1.2.0",
+    "@html-eslint/eslint-plugin": "0.46.2",
+    "@html-eslint/parser": "0.46.2",
     "@types/node": "24.3.1",
     "eslint": "9.35.0",
     "jiti": "2.5.1",
