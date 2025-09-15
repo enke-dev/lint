@@ -4,7 +4,7 @@ import { fixupPluginRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import eslintJson from '@eslint/json';
 import eslintPluginHtml from '@html-eslint/eslint-plugin';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintPluginHtmlScripts from 'eslint-plugin-html';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginImportExtension from 'eslint-plugin-import-extensions';
@@ -17,13 +17,17 @@ import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import { configs as eslintPluginWebComponentsConfigs } from 'eslint-plugin-wc';
 import eslintTs from 'typescript-eslint';
 
+const gitIgnores = await readFile(new URL('./.gitignore', import.meta.url), 'utf-8');
+const gitIgnoreLines = gitIgnores
+  .split('\n')
+  .map(line => line.trim().replace(/^\//, ''))
+  .filter(line => line && !line.startsWith('#'));
+
 export default defineConfig([
   eslintPluginPrettierRecommended,
   eslintPluginImport.flatConfigs.recommended,
+  globalIgnores([...gitIgnoreLines, 'dist/']),
 
-  {
-    ignores: ['node_modules/', 'dist/'],
-  },
 
   // Javascript and Typescript files
   {
