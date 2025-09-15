@@ -19,10 +19,11 @@
   "main": "eslint.config.js",
   "types": "eslint.config.d.ts",
   "scripts": {
-    "lint": "eslint -c eslint.config.ts ./*.config.ts",
+    "lint": "eslint -c test.config.ts .",
+    "test": "node --experimental-strip-types --test test.run.ts",
     "inspect": "./node_modules/.bin/eslint-config-inspector --config eslint.config.ts",
-    "dev": "tsc --watch",
-    "build": "tsc"
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "build": "tsc -p tsconfig.build.json"
   },
   "author": {
     "name": "David Enke",

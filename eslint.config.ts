@@ -1,58 +1,63 @@
 /// <reference types="./eslint-plugins.d.ts" />
 
+import { readFile } from 'node:fs/promises';
+
 import { fixupPluginRules } from '@eslint/compat';
-import eslintJs from '@eslint/js';
-import eslintJson from '@eslint/json';
+import eslintPluginJs from '@eslint/js';
+import eslintPluginJson from '@eslint/json';
 import eslintPluginHtml from '@html-eslint/eslint-plugin';
+import eslintParserHtml from '@html-eslint/parser';
+import type { Linter } from 'eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintPluginHtmlScripts from 'eslint-plugin-html';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintPluginImportExtension from 'eslint-plugin-import-extensions';
 import { configs as eslintPluginLitConfigs } from 'eslint-plugin-lit';
 import { configs as eslintPluginLitA11yConfigs } from 'eslint-plugin-lit-a11y';
-import { configs as eslintPluginPackageJsonConfigs } from 'eslint-plugin-package-json';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import { configs as eslintPluginWebComponentsConfigs } from 'eslint-plugin-wc';
 import eslintTs from 'typescript-eslint';
 
+// collect gitignore excludes
 const gitIgnores = await readFile(new URL('./.gitignore', import.meta.url), 'utf-8');
 const gitIgnoreLines = gitIgnores
   .split('\n')
   .map(line => line.trim().replace(/^\//, ''))
   .filter(line => line && !line.startsWith('#'));
 
+// shared parser options
+const parserOptions: Linter.ParserOptions = {
+  ecmaVersion: 'latest',
+  sourceType: 'module',
+};
+
 export default defineConfig([
-  eslintPluginPrettierRecommended,
-  eslintPluginImport.flatConfigs.recommended,
   globalIgnores([...gitIgnoreLines, 'dist/']),
 
+  eslintPluginPrettierRecommended,
 
   // Javascript and Typescript files
   {
-    files: ['**/*.{js,ts}'],
+    files: ['**/*.js', '**/*.ts'],
     extends: [
-      eslintJs.configs.recommended,
+      eslintPluginJs.configs.recommended,
       ...eslintTs.configs.strict,
       ...eslintTs.configs.stylistic,
       eslintPluginWebComponentsConfigs['flat/recommended'],
       eslintPluginLitConfigs['flat/recommended'],
       eslintPluginLitA11yConfigs.recommended,
-      'html/recommended',
+      eslintPluginImport.flatConfigs.recommended,
     ],
     plugins: {
       'simple-import-sort': eslintPluginSimpleImportSort,
       'unused-imports': eslintPluginUnusedImports,
       'import-extensions': fixupPluginRules(eslintPluginImportExtension),
       html: eslintPluginHtml,
+      htmlScripts: eslintPluginHtmlScripts,
     },
-    languageOptions: {
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
-    },
+    languageOptions: { parserOptions },
     settings: {
       'import/resolver': {
         typescript: true,
@@ -70,6 +75,17 @@ export default defineConfig([
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'always'],
+      'no-console': 'error',
+
+      // inline html
+      'html/require-img-alt': 'error',
+      'html/no-multiple-h1': 'error',
+      'html/no-extra-spacing-attrs': 'error',
+      'html/no-duplicate-id': 'error',
+      'html/require-li-container': 'error',
+      'html/no-obsolete-tags': 'error',
+      'html/require-closing-tags': 'error',
+      'html/no-duplicate-attrs': 'error',
 
       // import sorting
       'simple-import-sort/imports': [
@@ -123,26 +139,53 @@ export default defineConfig([
     },
   },
 
-  // HTML files (JS and HTML itself)
+  // HTML files
   {
     files: ['**/*.html'],
-    plugins: { htmlScripts: eslintPluginHtmlScripts, html: eslintPluginHtml },
-    extends: ['html/recommended'],
+    plugins: {
+      html: eslintPluginHtml,
+      htmlScripts: eslintPluginHtmlScripts,
+    },
+    extends: [eslintPluginHtml.configs['flat/recommended']],
     language: 'html/html',
+    languageOptions: {
+      parser: eslintParserHtml,
+      parserOptions,
+    },
+    settings: {
+      'html/indent': '+2',
+      'html/lowercase': 'error',
+      'html/no-accesskey-attrs': 'error',
+      'html/no-aria-hidden-body': 'error',
+      'html/no-aria-hidden-on-focusable': 'error',
+      'html/no-duplicate-class': 'error',
+      'html/no-duplicate-in-head': 'error',
+      'html/no-empty-headings': 'error',
+      'html/no-invalid-entities': 'error',
+      'html/no-heading-inside-button': 'error',
+      'html/no-invalid-entity': 'error',
+      'html/no-invalid-role': 'error',
+      'html/no-nested-interactive': 'error',
+      'html/no-multiple-empty-lines': 'error',
+      'html/no-target-blank': 'error',
+      'html/no-trailing-spaces': 'error',
+      'html/report-bad-indent': 'error',
+      'html/require-input-label': 'error',
+    },
+    rules: {
+      'html/indent': ['error', 2],
+    },
   },
 
   // JSON files
   {
-    ...eslintPluginPackageJsonConfigs.recommended,
-    ...eslintJson.configs.recommended,
-    ignores: ['package-lock.json'],
+    files: ['**/*.json'],
     language: 'json/json',
+    ignores: ['package-lock.json'],
+    plugins: { json: eslintPluginJson },
+    extends: [eslintPluginJson.configs.recommended],
     rules: {
-      'import-extensions/require-extensions': 'off',
-      'import-extensions/require-index': 'off',
-    },
-    settings: {
-      'html/html-extensions': ['.html'],
+      'json/top-level-interop': 'error',
     },
   },
 ]);

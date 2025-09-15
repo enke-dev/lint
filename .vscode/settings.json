@@ -1,0 +1,7 @@
+{
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "typescript", "html", "json"],
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.preferTypeOnlyAutoImports": true
+}

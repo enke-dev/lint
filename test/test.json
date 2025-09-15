@@ -1,0 +1,6 @@
+{
+  "": "test",
+  "duplicate": "value1",
+"duplicate": "value2",
+  "trailing": "comma"
+}
