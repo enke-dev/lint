@@ -1,5 +1,18 @@
 # @enke/lint
 
+# [0.10.0](https://github.com/enke-dev/lint/compare/0.9.2...0.10.0) (2025-09-15)
+
+
+### Bug Fixes
+
+* use local gitignore for global ignores ([79226d8](https://github.com/enke-dev/lint/commit/79226d80838481205e5300d7c39ccd00c912abb7))
+
+
+### Features
+
+* add html linting ([e9afb4b](https://github.com/enke-dev/lint/commit/e9afb4b3ddc966e9ae01b95b775c909ed4b9cbe1))
+* improve and test linting config ([7bcf948](https://github.com/enke-dev/lint/commit/7bcf948c16e14b7d98bfa10903e69dbd8fea8d38))
+
 ## [0.9.2](https://github.com/enke-dev/lint/compare/0.9.1...0.9.2) (2025-09-13)
 
 
