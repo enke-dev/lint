@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.10.1](https://github.com/enke-dev/lint/compare/0.10.0...0.10.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* depenendencies ([8f0dc75](https://github.com/enke-dev/lint/commit/8f0dc753a819d3ce5925d4d3e9a0c4168ebca11f))
+
 # [0.10.0](https://github.com/enke-dev/lint/compare/0.9.2...0.10.0) (2025-09-15)
 
 
