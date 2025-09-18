@@ -59,7 +59,7 @@
     "eslint-plugin-import-extensions": "0.1.5",
     "eslint-plugin-lit": "2.1.1",
     "eslint-plugin-lit-a11y": "5.1.1",
-    "eslint-plugin-package-json": "0.56.2",
+    "eslint-plugin-package-json": "0.56.3",
     "eslint-plugin-prettier": "5.5.4",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-unused-imports": "4.2.0",
@@ -67,11 +67,11 @@
   },
   "devDependencies": {
     "@eslint/config-inspector": "1.2.0",
-    "@types/node": "24.3.1",
+    "@types/node": "24.5.2",
     "eslint": "9.35.0",
     "jiti": "2.5.1",
     "prettier": "3.6.2",
     "typescript": "5.9.2",
-    "typescript-eslint": "8.43.0"
+    "typescript-eslint": "8.44.0"
   }
 }
