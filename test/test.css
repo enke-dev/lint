@@ -1,0 +1,16 @@
+/* ungrouped */
+:root {
+  /* unsorted */
+  height: auto;
+  display: block;
+  color: red;
+}
+
+:host {
+  --custom-prop: 10px; /* missing prefix */
+}
+
+/* duplicate selector */
+:host {
+  display: contents;
+}

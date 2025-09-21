@@ -71,6 +71,10 @@
     "eslint": "9.35.0",
     "jiti": "2.5.1",
     "prettier": "3.6.2",
+    "stylelint": "16.24.0",
+    "stylelint-config-rational-order": "0.1.2",
+    "stylelint-config-standard-scss": "16.0.0",
+    "stylelint-order": "7.0.0",
     "typescript": "5.9.2",
     "typescript-eslint": "8.44.0"
   }
