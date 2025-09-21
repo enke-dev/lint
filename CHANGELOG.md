@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.10.6](https://github.com/enke-dev/lint/compare/0.10.5...0.10.6) (2025-09-21)
+
+
+### Bug Fixes
+
+* do not use node globals ([aa1e84d](https://github.com/enke-dev/lint/commit/aa1e84d53a91a20003b5779a811b392bd0da46c2))
+
 ## [0.10.5](https://github.com/enke-dev/lint/compare/0.10.4...0.10.5) (2025-09-21)
 
 
