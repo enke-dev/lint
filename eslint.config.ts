@@ -29,7 +29,7 @@ try {
   gitIgnoreLines = gitIgnores
     .split('\n')
     .map(line => line.trim().replace(/^\//, ''))
-    .filter(line => line && !line.startsWith('#'));
+    .filter(line => Boolean(line) && !line.startsWith('#'));
 } catch (error) {
   // noop - maybe a warning?
 }
