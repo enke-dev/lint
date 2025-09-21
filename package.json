@@ -19,8 +19,8 @@
   "main": "eslint.config.js",
   "types": "eslint.config.d.ts",
   "scripts": {
-    "lint": "eslint -c test.config.ts .",
     "test": "node --experimental-strip-types --test test.run.ts",
+    "lint": "eslint -c test.eslint.config.ts .",
     "inspect": "./node_modules/.bin/eslint-config-inspector --config eslint.config.ts",
     "dev": "tsc -p tsconfig.build.json --watch",
     "build": "tsc -p tsconfig.build.json"
