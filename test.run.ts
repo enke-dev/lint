@@ -43,7 +43,7 @@ describe('naive check that eslint grabs issues', () => {
 
   it('finds all issues in HTML', async () => {
     const { errorCount } = await runEslintOnFile('test/test.html');
-    expect.equal(errorCount, 18, 'HTML file should have 18 issues');
+    expect.equal(errorCount, 6, 'HTML file should have 6 issues');
   });
 
   it('finds all issues in JSON', async () => {
@@ -70,7 +70,7 @@ describe('naive check that eslint can fix issues', () => {
 
   it('applies fixable issues in HTML', async () => {
     const { errorCount } = await runEslintOnFile('test/test.html', true);
-    expect.equal(errorCount, 16, 'HTML file should have 16 remaining unfixable issues');
+    expect.equal(errorCount, 4, 'HTML file should have 4 remaining unfixable issues');
   });
 
   it('applies fixable issues in JSON', async () => {

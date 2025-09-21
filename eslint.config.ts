@@ -180,7 +180,7 @@ export default defineConfig([
       'html/require-input-label': 'error',
     },
     rules: {
-      'html/indent': ['error', 2],
+      '@html-eslint/indent': ['error', 2],
     },
   },
 
