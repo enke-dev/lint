@@ -58,6 +58,16 @@ The VSCode Eslint plugin can be configured to pick up packages correctly by upda
 }
 ```
 
+## Prepare Prettier config
+
+A [shared prettier configuration](https://prettier.io/docs/sharing-configurations) can be used by creating a `prettier.config.js` or `prettier.config.ts` file in the root of your project with the following content:
+
+```js
+import config from '@enke.dev/lint/prettier.config.js';
+
+export default config;
+```
+
 ## Prepare Stylelint config (experimental)
 
 Uses some common presets and can be used in CSS, SASS and SCSS files.\

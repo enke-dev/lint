@@ -1,3 +1,13 @@
+declare module '@awmottaz/prettier-plugin-void-html' {
+  import type { Plugin } from 'prettier';
+
+  export const languages: Plugin['languages'];
+  export const parsers: Plugin['parsers'];
+  export const printers: Plugin['printers'];
+  export const options: Plugin['options'];
+  export const defaultOptions: Plugin['defaultOptions'];
+}
+
 declare module 'eslint-plugin-html' {
   import type { ESLint } from 'eslint';
 
