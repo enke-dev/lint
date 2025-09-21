@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.10.5](https://github.com/enke-dev/lint/compare/0.10.4...0.10.5) (2025-09-21)
+
+
+### Bug Fixes
+
+* reading gitignore only if file is found ([82d2e84](https://github.com/enke-dev/lint/commit/82d2e84b95dbe369cd29cbadccd59e72567842f0))
+
 ## [0.10.4](https://github.com/enke-dev/lint/compare/0.10.3...0.10.4) (2025-09-18)
 
 ## [0.10.3](https://github.com/enke-dev/lint/compare/0.10.2...0.10.3) (2025-09-18)
