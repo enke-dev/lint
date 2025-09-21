@@ -1,6 +1,5 @@
-import { readFile } from 'node:fs/promises';
+import { existsSync, readFileSync } from 'node:fs';
 import { cwd } from 'node:process';
-import { pathToFileURL } from 'node:url';
 
 import { fixupPluginRules } from '@eslint/compat';
 import eslintPluginJs from '@eslint/js';
@@ -22,14 +21,13 @@ import eslintTs from 'typescript-eslint';
 
 // collect gitignore excludes
 let gitIgnoreLines: string[] = [];
-try {
-  const gitIgnores = await readFile(pathToFileURL(`${cwd()}/.gitignore`).href, 'utf-8');
+const pathToGitIgnore = `${cwd()}/.gitignore`;
+if (existsSync(pathToGitIgnore)) {
+  const gitIgnores = readFileSync(pathToGitIgnore, 'utf-8');
   gitIgnoreLines = gitIgnores
     .split('\n')
     .map(line => line.trim().replace(/^\//, ''))
     .filter(line => Boolean(line) && !line.startsWith('#'));
-} catch (error) {
-  // noop - maybe a warning?
 }
 
 // shared parser options
