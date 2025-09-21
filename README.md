@@ -8,7 +8,7 @@ Make sure to install the necessary peer dependencies:
 npm i -D @enke.dev/lint eslint prettier
 ```
 
-For Typescript support, additionally install:
+For Typescript support, install:
 
 ```bash
 npm i -D @enke.dev/lint eslint prettier jiti typescript typescript-eslint
@@ -26,7 +26,7 @@ export default config;
 
 ### Using Typescript
 
-If you intend to use Typescript for your config file, you just have to install `typescript` and `jiti`.
+If you intend to use Typescript for your config file, you just have to install `typescript`, `typescript-eslint` and `jiti`.
 
 Your config file can then be renamed to `eslint.config.ts` and look like this at minimum:
 
