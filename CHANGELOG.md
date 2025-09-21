@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.11.1](https://github.com/enke-dev/lint/compare/0.11.0...0.11.1) (2025-09-21)
+
+
+### Bug Fixes
+
+* deliver prettier files actually ([ce40433](https://github.com/enke-dev/lint/commit/ce4043340d42b42fe788bd6f650ee51d0cd21b7b))
+
 # [0.11.0](https://github.com/enke-dev/lint/compare/0.10.7...0.11.0) (2025-09-21)
 
 
