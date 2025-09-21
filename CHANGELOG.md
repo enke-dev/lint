@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.10.7](https://github.com/enke-dev/lint/compare/0.10.6...0.10.7) (2025-09-21)
+
+
+### Bug Fixes
+
+* html indendation is 2 spaces ([e628433](https://github.com/enke-dev/lint/commit/e62843363bc0e81321fab483af4a9af22c50e4b3))
+
 ## [0.10.6](https://github.com/enke-dev/lint/compare/0.10.5...0.10.6) (2025-09-21)
 
 
