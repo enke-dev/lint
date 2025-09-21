@@ -8,7 +8,7 @@ Make sure to install the necessary peer dependencies:
 npm i -D @enke.dev/lint eslint prettier
 ```
 
-For Typescript support, install:
+For Typescript support, additionally install:
 
 ```bash
 npm i -D @enke.dev/lint eslint prettier jiti typescript typescript-eslint

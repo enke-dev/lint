@@ -1,6 +1,7 @@
 /// <reference types="./eslint-plugins.d.ts" />
 
 import { readFile } from 'node:fs/promises';
+import { pathToFileURL } from 'node:url';
 
 import { fixupPluginRules } from '@eslint/compat';
 import eslintPluginJs from '@eslint/js';
@@ -21,11 +22,16 @@ import { configs as eslintPluginWebComponentsConfigs } from 'eslint-plugin-wc';
 import eslintTs from 'typescript-eslint';
 
 // collect gitignore excludes
-const gitIgnores = await readFile(new URL('./.gitignore', import.meta.url), 'utf-8');
-const gitIgnoreLines = gitIgnores
-  .split('\n')
-  .map(line => line.trim().replace(/^\//, ''))
-  .filter(line => line && !line.startsWith('#'));
+let gitIgnoreLines: string[] = [];
+try {
+  const gitIgnores = await readFile(pathToFileURL(`${process.cwd()}/.gitignore`).href, 'utf-8');
+  gitIgnoreLines = gitIgnores
+    .split('\n')
+    .map(line => line.trim().replace(/^\//, ''))
+    .filter(line => line && !line.startsWith('#'));
+} catch (error) {
+  // noop - maybe a warning?
+}
 
 // shared parser options
 const parserOptions: Linter.ParserOptions = {
