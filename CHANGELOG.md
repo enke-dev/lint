@@ -1,5 +1,17 @@
 # @enke/lint
 
+# [0.11.0](https://github.com/enke-dev/lint/compare/0.10.7...0.11.0) (2025-09-21)
+
+
+### Bug Fixes
+
+* handle gitignore properly ([f979a21](https://github.com/enke-dev/lint/commit/f979a211e16a397cc27bf0baca73d97d0660c974))
+
+
+### Features
+
+* shared prettier config ([c2f2831](https://github.com/enke-dev/lint/commit/c2f2831f54a7825042533c5fb452bd82fbfdbc87))
+
 ## [0.10.7](https://github.com/enke-dev/lint/compare/0.10.6...0.10.7) (2025-09-21)
 
 
