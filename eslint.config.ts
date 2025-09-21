@@ -1,6 +1,7 @@
 /// <reference types="./eslint-plugins.d.ts" />
 
 import { readFile } from 'node:fs/promises';
+import { cwd } from 'node:process';
 import { pathToFileURL } from 'node:url';
 
 import { fixupPluginRules } from '@eslint/compat';
@@ -24,7 +25,7 @@ import eslintTs from 'typescript-eslint';
 // collect gitignore excludes
 let gitIgnoreLines: string[] = [];
 try {
-  const gitIgnores = await readFile(pathToFileURL(`${process.cwd()}/.gitignore`).href, 'utf-8');
+  const gitIgnores = await readFile(pathToFileURL(`${cwd()}/.gitignore`).href, 'utf-8');
   gitIgnoreLines = gitIgnores
     .split('\n')
     .map(line => line.trim().replace(/^\//, ''))
