@@ -11,6 +11,8 @@
     "eslint.config.d.ts",
     "eslint.config.js",
     "eslint-plugins.d.ts",
+    "prettier.config.d.ts",
+    "prettier.config.js",
     "stylelint.config.d.ts",
     "stylelint.config.js",
     "README.md"
