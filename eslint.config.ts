@@ -1,5 +1,3 @@
-/// <reference types="./eslint-plugins.d.ts" />
-
 import { readFile } from 'node:fs/promises';
 import { cwd } from 'node:process';
 import { pathToFileURL } from 'node:url';
