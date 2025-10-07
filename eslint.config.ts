@@ -36,7 +36,7 @@ const parserOptions: Linter.ParserOptions = {
   sourceType: 'module',
 };
 
-export default defineConfig([
+const config: ReturnType<typeof defineConfig> = defineConfig([
   globalIgnores([...gitIgnoreLines, 'dist/']),
 
   eslintPluginPrettierRecommended,
@@ -192,3 +192,5 @@ export default defineConfig([
     },
   },
 ]);
+
+export default config;
