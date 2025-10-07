@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.11.3](https://github.com/enke-dev/lint/compare/0.11.2...0.11.3) (2025-10-07)
+
+
+### Bug Fixes
+
+* explicit types ([8891ecb](https://github.com/enke-dev/lint/commit/8891ecb213bc01f94db1f0552b7865a2ecc89a39))
+
 ## [0.11.2](https://github.com/enke-dev/lint/compare/0.11.1...0.11.2) (2025-09-22)
 
 ## [0.11.1](https://github.com/enke-dev/lint/compare/0.11.0...0.11.1) (2025-09-21)
