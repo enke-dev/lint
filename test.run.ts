@@ -1,9 +1,14 @@
-import expect from 'node:assert';
+import { strictEqual as _strictEqual } from 'node:assert';
 import { readFile, writeFile } from 'node:fs/promises';
 import { describe, it } from 'node:test';
 
 import { ESLint } from 'eslint';
 import Stylelint from 'stylelint';
+
+function strictEqual(actual: number, expected: number, message: string) {
+  const formattedMessage = message.replace('%d', expected.toString());
+  _strictEqual(actual, expected, formattedMessage);
+}
 
 async function runEslintOnFile(filePath: string, fix = false): Promise<ESLint.LintResult> {
   const results = await new ESLint({ fix }).lintFiles([filePath]);
@@ -28,67 +33,67 @@ async function runStylelintOnFile(filePath: string, fix = false): Promise<Stylel
 describe('naive check that eslint grabs issues', () => {
   it('finds all issues in Typescript', async () => {
     const { errorCount } = await runEslintOnFile('test/test.ts');
-    expect.equal(errorCount, 6, 'TS file should have 6 issues');
+    strictEqual(errorCount, 6, 'TS file should have %d issues');
   });
 
   it('finds all issues in markup in Typescript', async () => {
     const { errorCount } = await runEslintOnFile('test/test.html.ts');
-    expect.equal(errorCount, 5, 'Markup in TS file should have 5 issues');
+    strictEqual(errorCount, 5, 'Markup in TS file should have %d issues');
   });
 
   it('finds all issues in Lit components', async () => {
     const { errorCount } = await runEslintOnFile('test/test.component.ts');
-    expect.equal(errorCount, 4, 'Lit component file should have 4 issues');
+    strictEqual(errorCount, 4, 'Lit component file should have %d issues');
   });
 
   it('finds all issues in HTML', async () => {
     const { errorCount } = await runEslintOnFile('test/test.html');
-    expect.equal(errorCount, 7, 'HTML file should have 7 issues');
+    strictEqual(errorCount, 7, 'HTML file should have %d issues');
   });
 
   it('finds all issues in JSON', async () => {
     const { errorCount } = await runEslintOnFile('test/test.json');
-    expect.equal(errorCount, 3, 'JSON file should have 2 issues');
+    strictEqual(errorCount, 3, 'JSON file should have %d issues');
   });
 });
 
 describe('naive check that eslint can fix issues', () => {
   it('applies fixable issues in Typescript', async () => {
     const { errorCount } = await runEslintOnFile('test/test.ts', true);
-    expect.equal(errorCount, 3, 'TS file should have 3 remaining unfixable issues');
+    strictEqual(errorCount, 3, 'TS file should have %d remaining unfixable issues');
   });
 
   it('applies fixable issues in markup in Typescript', async () => {
     const { errorCount } = await runEslintOnFile('test/test.html.ts', true);
-    expect.equal(errorCount, 5, 'Markup in TS file should not have been fixed');
+    strictEqual(errorCount, 5, 'Markup in TS file should not have been fixed');
   });
 
   it('applies fixable issues in Lit components', async () => {
     const { errorCount } = await runEslintOnFile('test/test.component.ts', true);
-    expect.equal(errorCount, 1, 'Lit component file should have 1 remaining unfixable issue');
+    strictEqual(errorCount, 1, 'Lit component file should have %d remaining unfixable issue');
   });
 
   it('applies fixable issues in HTML', async () => {
     const { errorCount } = await runEslintOnFile('test/test.html', true);
-    expect.equal(errorCount, 4, 'HTML file should have 4 remaining unfixable issues');
+    strictEqual(errorCount, 4, 'HTML file should have %d remaining unfixable issues');
   });
 
   it('applies fixable issues in JSON', async () => {
     const { errorCount } = await runEslintOnFile('test/test.json', true);
-    expect.equal(errorCount, 2, 'JSON file should have 2 remaining unfixable issues');
+    strictEqual(errorCount, 2, 'JSON file should have %d remaining unfixable issues');
   });
 });
 
 describe('naive check that stylelint grabs issues', () => {
   it('finds all issues in CSS', async () => {
     const { warnings } = await runStylelintOnFile('test/test.css');
-    expect.equal(warnings.length, 4, 'CSS file should have 5 issues');
+    strictEqual(warnings.length, 4, 'CSS file should have %d issues');
   });
 });
 
 describe('naive check that stylelint can fix issues', () => {
   it('applies fixable issues in CSS', async () => {
     const { warnings } = await runStylelintOnFile('test/test.css', true);
-    expect.equal(warnings.length, 2, 'CSS file should have 2 remaining unfixable issues');
+    strictEqual(warnings.length, 2, 'CSS file should have %d remaining unfixable issues');
   });
 });
