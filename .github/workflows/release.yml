@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
+          node-version-file: .node-version
           cache: npm
 
       - name: Install
@@ -48,7 +48,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc
+          node-version-file: .node-version
           cache: npm
           registry-url: https://registry.npmjs.org/
 
