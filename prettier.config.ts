@@ -1,4 +1,3 @@
-import * as voidHtml from '@awmottaz/prettier-plugin-void-html';
 import type { Config } from 'prettier';
 
 const config: Config = {
@@ -10,8 +9,6 @@ const config: Config = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
-
-  plugins: [voidHtml],
 };
 
 export default config;
