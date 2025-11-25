@@ -149,7 +149,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig([
       html: eslintPluginHtml,
       htmlScripts: eslintPluginHtmlScripts,
     },
-    extends: [eslintPluginHtml.configs['flat/recommended']],
+    extends: ['html/recommended'],
     language: 'html/html',
     languageOptions: {
       parser: eslintParserHtml,
@@ -176,7 +176,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig([
       'html/require-input-label': 'error',
     },
     rules: {
-      '@html-eslint/indent': ['error', 2],
+      'html/indent': ['error', 2],
     },
   },
 

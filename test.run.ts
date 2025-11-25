@@ -43,7 +43,7 @@ describe('naive check that eslint grabs issues', () => {
 
   it('finds all issues in HTML', async () => {
     const { errorCount } = await runEslintOnFile('test/test.html');
-    expect.equal(errorCount, 6, 'HTML file should have 6 issues');
+    expect.equal(errorCount, 7, 'HTML file should have 7 issues');
   });
 
   it('finds all issues in JSON', async () => {
