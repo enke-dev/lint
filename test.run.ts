@@ -17,7 +17,7 @@ async function runStylelintOnFile(filePath: string, fix = false): Promise<Stylel
   const { defineConfig } = await import('./stylelint.config.ts');
   const config = defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
   const { results } = await Stylelint.lint({ files: filePath, config, fix, formatter: 'json' });
-  // resert fixed file to original state, as we can not
+  // reset fixed file to original state, as we can not
   // prevent checking fixed results without writing them
   if (fix) {
     await writeFile(filePath, untouchedFile, 'utf-8');
