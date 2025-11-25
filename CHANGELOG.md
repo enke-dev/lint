@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.11.4](/compare/0.11.3...0.11.4) (2025-11-25)
+
+
+### Bug Fixes
+
+* html plugin rule config 7e11456
+
 ## [0.11.3](https://github.com/enke-dev/lint/compare/0.11.2...0.11.3) (2025-10-07)
 
 
