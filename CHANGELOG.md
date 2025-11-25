@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.11.5](/compare/0.11.4...0.11.5) (2025-11-25)
+
+
+### Bug Fixes
+
+* remove incompatible prettier plugin 2479cd5
+
 ## [0.11.4](/compare/0.11.3...0.11.4) (2025-11-25)
 
 
