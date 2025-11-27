@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.11.8](/compare/0.11.7...0.11.8) (2025-11-27)
+
+
+### Bug Fixes
+
+* typescript config root dir set by default 112dc1b
+
 ## [0.11.7](/compare/0.11.6...0.11.7) (2025-11-27)
 
 
