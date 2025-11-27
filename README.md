@@ -24,30 +24,27 @@ import config from '@enke.dev/lint';
 export default config;
 ```
 
+> [!NOTE]
+> Using Typescript may requires the root directory where to find the `tsconfig.json` to be specified.\
+> Therefore, a convenience function `setTsConfigRootDir` is provided to configure this option globally.
+
 ### Extending a config
 
 For example for setting up the Typescript parser, you can extend the base config like this:
 
 ```ts
-import config from '@enke.dev/lint';
+import config, { setTsConfigRootDir } from '@enke.dev/lint';
 
 export default defineConfig([
   // extend the base config
   ...config,
   // configure typescript parser to your needs
-  {
-    languageOptions: {
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-  },
+  setTsConfigRootDir(import.meta.dirname),
 ]);
 ```
 
 > [!TIP]
-> This applies to all configs exported by this package, e.g. for Prettier as well.
+> Extending configurations works the same way with all other configs provided by this package.
 
 ### Using Monorepos
 

@@ -7,6 +7,7 @@ import eslintPluginJson from '@eslint/json';
 import eslintPluginHtml from '@html-eslint/eslint-plugin';
 import eslintParserHtml from '@html-eslint/parser';
 import type { Linter } from 'eslint';
+import type { Config } from 'eslint/config';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintPluginHtmlScripts from 'eslint-plugin-html';
 import eslintPluginImport from 'eslint-plugin-import';
@@ -34,14 +35,17 @@ if (existsSync(pathToGitIgnore)) {
 const parserOptions: Linter.ParserOptions = {
   ecmaVersion: 'latest',
   sourceType: 'module',
-  project: true,
-  tsconfigRootDir: import.meta.dirname,
 };
+
+export function setTsConfigRootDir(dir: string): Config {
+  return { languageOptions: { parserOptions: { project: true, tsconfigRootDir: dir } } };
+}
 
 const config: ReturnType<typeof defineConfig> = defineConfig([
   globalIgnores([...gitIgnoreLines, 'dist/']),
 
   eslintPluginPrettierRecommended,
+  setTsConfigRootDir(import.meta.dirname),
 
   // Javascript and Typescript files
   {
