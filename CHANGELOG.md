@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.11.9](/compare/0.11.8...0.11.9) (2025-11-27)
+
+
+### Bug Fixes
+
+* allow setting the root dir with a convenience function 435d480
+
 ## [0.11.8](/compare/0.11.7...0.11.8) (2025-11-27)
 
 
