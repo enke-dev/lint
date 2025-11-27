@@ -34,6 +34,8 @@ if (existsSync(pathToGitIgnore)) {
 const parserOptions: Linter.ParserOptions = {
   ecmaVersion: 'latest',
   sourceType: 'module',
+  project: true,
+  tsconfigRootDir: import.meta.dirname,
 };
 
 const config: ReturnType<typeof defineConfig> = defineConfig([
