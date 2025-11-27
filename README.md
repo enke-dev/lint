@@ -5,18 +5,18 @@
 Make sure to install the necessary peer dependencies:
 
 ```bash
-npm i -D @enke.dev/lint eslint prettier
+npm i -D @enke.dev/lint eslint prettier @awmottaz/prettier-plugin-void-html
 ```
 
-For Typescript support, install:
+For Typescript support, additionally install:
 
 ```bash
-npm i -D @enke.dev/lint eslint prettier jiti typescript typescript-eslint
+npm i -D jiti typescript typescript-eslint
 ```
 
 ## Prepare Eslint config
 
-Create a `eslint.config.js` file in the root of your project and add the following content:
+Create a `eslint.config.js` (or `eslint.config.ts`) file in the root of your project and add the following content:
 
 ```js
 import config from '@enke.dev/lint';
@@ -24,11 +24,9 @@ import config from '@enke.dev/lint';
 export default config;
 ```
 
-### Using Typescript
+### Extending a config
 
-If you intend to use Typescript for your config file, you just have to install `typescript`, `typescript-eslint` and `jiti`.
-
-Your config file can then be renamed to `eslint.config.ts` and look like this at minimum:
+For example for setting up the Typescript parser, you can extend the base config like this:
 
 ```ts
 import config from '@enke.dev/lint';
@@ -48,6 +46,9 @@ export default defineConfig([
 ]);
 ```
 
+> [!TIP]
+> This applies to all configs exported by this package, e.g. for Prettier as well.
+
 ### Using Monorepos
 
 The VSCode Eslint plugin can be configured to pick up packages correctly by updating your `settings.json`, e.g.:
@@ -60,7 +61,7 @@ The VSCode Eslint plugin can be configured to pick up packages correctly by upda
 
 ## Prepare Prettier config
 
-A [shared prettier configuration](https://prettier.io/docs/sharing-configurations) can be used by creating a `prettier.config.js` or `prettier.config.ts` file in the root of your project with the following content:
+A [shared prettier configuration](https://prettier.io/docs/sharing-configurations) can be used by creating a `prettier.config.js` (or `prettier.config.ts`) file in the root of your project with the following content:
 
 ```js
 import config from '@enke.dev/lint/prettier.config.js';
