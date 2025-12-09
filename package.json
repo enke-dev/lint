@@ -37,18 +37,18 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@awmottaz/prettier-plugin-void-html": "^1.9.0",
-    "eslint": "^9.35.0",
-    "prettier": "^3.6.2"
+    "@awmottaz/prettier-plugin-void-html": "^2.0.0",
+    "eslint": "^9.39.1",
+    "prettier": "^3.7.4"
   },
   "optionalDependencies": {
-    "jiti": "^2.5.1",
-    "stylelint": "^16.24.0",
+    "jiti": "^2.6.1",
+    "stylelint": "^16.26.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-order": "^7.0.0",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.43.0"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.49.0"
   },
   "dependencies": {
     "@eslint/compat": "2.0.0",
@@ -72,7 +72,7 @@
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.0.0",
     "@eslint/config-inspector": "1.4.2",
-    "@types/node": "24.10.1",
+    "@types/node": "24.10.2",
     "eslint": "9.39.1",
     "jiti": "2.6.1",
     "prettier": "3.7.4",
@@ -81,6 +81,6 @@
     "stylelint-config-standard-scss": "16.0.0",
     "stylelint-order": "7.0.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.48.1"
+    "typescript-eslint": "8.49.0"
   }
 }
