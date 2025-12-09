@@ -70,7 +70,7 @@
     "eslint-plugin-wc": "3.0.2"
   },
   "devDependencies": {
-    "@awmottaz/prettier-plugin-void-html": "1.10.0",
+    "@awmottaz/prettier-plugin-void-html": "2.0.0",
     "@eslint/config-inspector": "1.4.2",
     "@types/node": "24.10.1",
     "eslint": "9.39.1",
