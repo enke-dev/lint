@@ -6,7 +6,6 @@ import eslintPluginJs from '@eslint/js';
 import eslintPluginJson from '@eslint/json';
 import eslintPluginHtml from '@html-eslint/eslint-plugin';
 import eslintParserHtml from '@html-eslint/parser';
-import type { Linter } from 'eslint';
 import type { Config } from 'eslint/config';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintPluginHtmlScripts from 'eslint-plugin-html';
@@ -31,12 +30,21 @@ if (existsSync(pathToGitIgnore)) {
     .filter(line => Boolean(line) && !line.startsWith('#'));
 }
 
-// shared parser options
-const parserOptions: Linter.ParserOptions = {
-  ecmaVersion: 'latest',
-  sourceType: 'module',
-};
-
+/**
+ * Convenience function to provide parser options for typescript files.
+ * @param dir the root directory where to find the tsconfig.json
+ * @returns Partial ESLint config with the parser options set
+ * @example
+ * ```ts
+ * import { defineConfig } from 'eslint/config';
+ * import { setTsConfigRootDir } from '@enke.dev/lint/eslint.config';
+ *
+ * export default defineConfig([
+ *   setTsConfigRootDir(__dirname),
+ *   // other config entries...
+ * ]);
+ * ```
+ */
 export function setTsConfigRootDir(dir: string): Config {
   return { languageOptions: { parserOptions: { project: true, tsconfigRootDir: dir } } };
 }
@@ -45,7 +53,6 @@ const config: ReturnType<typeof defineConfig> = defineConfig([
   globalIgnores([...gitIgnoreLines, 'dist/']),
 
   eslintPluginPrettierRecommended,
-  setTsConfigRootDir(import.meta.dirname),
 
   // Javascript and Typescript files
   {
@@ -66,7 +73,13 @@ const config: ReturnType<typeof defineConfig> = defineConfig([
       html: eslintPluginHtml,
       htmlScripts: eslintPluginHtmlScripts,
     },
-    languageOptions: { parserOptions },
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ...(setTsConfigRootDir(cwd()).languageOptions?.parserOptions ?? {}),
+      },
+    },
     settings: {
       'import/resolver': {
         typescript: true,
@@ -159,7 +172,10 @@ const config: ReturnType<typeof defineConfig> = defineConfig([
     language: 'html/html',
     languageOptions: {
       parser: eslintParserHtml,
-      parserOptions,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
     },
     settings: {
       'html/indent': '+2',

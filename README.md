@@ -5,28 +5,49 @@
 Make sure to install the necessary peer dependencies:
 
 ```bash
-npm i -D @enke.dev/lint eslint prettier @awmottaz/prettier-plugin-void-html
-```
-
-For Typescript support, additionally install:
-
-```bash
-npm i -D jiti typescript typescript-eslint
+npm i -D @enke.dev/lint eslint prettier typescript typescript-eslint
 ```
 
 ## Prepare Eslint config
 
-Create a `eslint.config.js` (or `eslint.config.ts`) file in the root of your project and add the following content:
+Create a `eslint.config.ts` file in the root of your project and add the following content:
 
-```js
+```ts
 import config from '@enke.dev/lint';
 
 export default config;
 ```
 
 > [!NOTE]
-> Using Typescript may requires the root directory where to find the `tsconfig.json` to be specified.\
-> Therefore, a convenience function `setTsConfigRootDir` is provided to configure this option globally.
+> Using Typescript requires the root directory where to find the `tsconfig.json` to be specified.\
+> This may differ in monorepo setups, therefore, a convenience function `setTsConfigRootDir` is
+> provided to configure this option globally.
+
+Internally, we use `setTsConfigRootDir(process.cwd())` to set the root directory to the current working directory.
+
+For ESM, this may look like this:
+
+```ts
+import { defineConfig } from 'eslint/config';
+import { setTsConfigRootDir } from '@enke.dev/lint/eslint.config';
+
+export default defineConfig([
+  setTsConfigRootDir(import.meta.dirname),
+  // other config entries...
+]);
+```
+
+For CommonJS, this may look like this:
+
+```ts
+const { defineConfig } = require('eslint/config');
+const { setTsConfigRootDir } = require('@enke.dev/lint/eslint.config');
+
+export default defineConfig([
+  setTsConfigRootDir(__dirname),
+  // other config entries...
+]);
+```
 
 ### Extending a config
 
@@ -58,7 +79,7 @@ The VSCode Eslint plugin can be configured to pick up packages correctly by upda
 
 ## Prepare Prettier config
 
-A [shared prettier configuration](https://prettier.io/docs/sharing-configurations) can be used by creating a `prettier.config.js` (or `prettier.config.ts`) file in the root of your project with the following content:
+A [shared prettier configuration](https://prettier.io/docs/sharing-configurations) can be used by creating a `prettier.config.ts` file in the root of your project with the following content:
 
 ```js
 import config from '@enke.dev/lint/prettier.config.js';
