@@ -92,7 +92,7 @@ For now, [no TypeScript support](https://github.com/stylelint/stylelint/issues/4
 ## Development
 
 This repo self-tests the configuration by linting itself: `npm run lint`.\
-Therefore, a `text.config.ts` is used.
+Therefore, a `tesr.eslint.config.ts` is used.
 
 And additionally, a naive test is in place to check that the linter actually finds issues: `npm run test`.\
 It uses the native Node test runner against some obviously faulty code in the `test` directory.
