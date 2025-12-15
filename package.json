@@ -24,7 +24,7 @@
     "check": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint -c test.eslint.config.ts .",
     "test": "node --experimental-strip-types --test test.run.ts",
-    "inspect": "./node_modules/.bin/eslint-config-inspector --config eslint.config.ts",
+    "inspect": "eslint-config-inspector --config eslint.config.ts",
     "dev": "tsc -p tsconfig.build.json --watch",
     "build": "tsc -p tsconfig.build.json"
   },
