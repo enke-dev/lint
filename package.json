@@ -48,14 +48,14 @@
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-order": "^7.0.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.49.0"
+    "typescript-eslint": "^8.50.0"
   },
   "dependencies": {
     "@eslint/compat": "2.0.0",
     "@eslint/js": "9.39.2",
     "@eslint/json": "0.14.0",
-    "@html-eslint/eslint-plugin": "0.51.0",
-    "@html-eslint/parser": "0.51.0",
+    "@html-eslint/eslint-plugin": "0.52.0",
+    "@html-eslint/parser": "0.52.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-html": "8.1.3",
