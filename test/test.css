@@ -13,4 +13,6 @@
 /* duplicate selector */
 :host {
   display: contents;
+  /* duplicate property */
+  display: block;
 }

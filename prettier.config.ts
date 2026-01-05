@@ -1,4 +1,6 @@
+import * as voidHtmlPlugin from '@awmottaz/prettier-plugin-void-html';
 import type { Config } from 'prettier';
+import * as cssOrderPlugin from 'prettier-plugin-css-order';
 
 const config: Config = {
   arrowParens: 'avoid',
@@ -9,7 +11,7 @@ const config: Config = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
-  plugins: ['@awmottaz/prettier-plugin-void-html', 'prettier-plugin-css-order'],
+  plugins: [voidHtmlPlugin, cssOrderPlugin],
 };
 
 export default config;

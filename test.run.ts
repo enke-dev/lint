@@ -111,6 +111,11 @@ suite('prettier', () => {
       ok(!result, 'HTML file not detected as malformed');
     });
 
+    // it('finds malformed CSS', async () => {
+    //   const result = await runPrettierOnFile('test/test.css');
+    //   ok(!result, 'CSS file not detected as malformed');
+    // });
+
     it('finds malformed JSON', async () => {
       const result = await runPrettierOnFile('test/test.json');
       ok(!result, 'JSON file not detected as malformed');
@@ -122,7 +127,7 @@ suite('stylelint', () => {
   describe('naive check that stylelint grabs issues', () => {
     it('finds all issues in CSS', async () => {
       const { warnings } = await runStylelintOnFile('test/test.css');
-      strictEqual(warnings.length, 4, 'CSS file should have %d issues');
+      strictEqual(warnings.length, 5, 'CSS file should have %d issues');
     });
   });
 
