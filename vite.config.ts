@@ -1,6 +1,7 @@
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
+import dts from 'unplugin-dts/vite';
 import { defineConfig } from 'vite';
 
 import { peerDependencies } from './package.json';
@@ -38,6 +39,8 @@ export default defineConfig({
     noExternal: true,
   },
   resolve: {
+    // some imports are not resolvable, but vite--require fails on static
+    // code analysis ignoring the wrapping try-catch for runtime checks
     alias: [
       {
         find: /eslint\/lib\/cli-engine\/file-enumerator/,
@@ -56,5 +59,5 @@ export default defineConfig({
       },
     ],
   },
-  // plugins: [dts({ include: entryPoints })],
+  plugins: [dts({ include: [...entryPoints, './modules.d.ts'] })],
 });
