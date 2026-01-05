@@ -3,6 +3,7 @@ const someInlineHtml = /* html */ `
 <p>This is mis-indented.</p>
     <span unclosed>
 </div>
+      <br />
 `;
 
 // @ts-expect-error -- not scope of the test
@@ -12,4 +13,5 @@ html`
 <p>This is mis-indented.</p>
     <span unclosed>
 </div>
+      <br />
 `;

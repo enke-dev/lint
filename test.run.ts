@@ -52,7 +52,7 @@ suite('eslint', () => {
 
     it('finds all issues in markup in Typescript', async () => {
       const { errorCount } = await runEslintOnFile('test/test.html.ts');
-      strictEqual(errorCount, 5, 'Markup in TS file should have %d issues');
+      strictEqual(errorCount, 9, 'Markup in TS file should have %d issues');
     });
 
     it('finds all issues in Lit components', async () => {
@@ -62,7 +62,7 @@ suite('eslint', () => {
 
     it('finds all issues in HTML', async () => {
       const { errorCount } = await runEslintOnFile('test/test.html');
-      strictEqual(errorCount, 7, 'HTML file should have %d issues');
+      strictEqual(errorCount, 11, 'HTML file should have %d issues');
     });
 
     it('finds all issues in JSON', async () => {
