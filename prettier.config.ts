@@ -9,7 +9,7 @@ const config: Config = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
-  plugins: ['@awmottaz/prettier-plugin-void-html'],
+  plugins: ['@awmottaz/prettier-plugin-void-html', 'prettier-plugin-css-order'],
 };
 
 export default config;
