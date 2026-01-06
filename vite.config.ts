@@ -3,6 +3,7 @@ import { dirname, resolve } from 'node:path';
 
 import dts from 'unplugin-dts/vite';
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { peerDependencies } from './package.json';
 
@@ -26,13 +27,19 @@ export default defineConfig({
     outDir: 'dist',
     lib: {
       entry: entryPoints,
-      formats: ['es', 'cjs'],
+      formats: ['cjs'],
     },
     rollupOptions: {
       output: {
         exports: 'named',
+        entryFileNames: '[name].js',
       },
     },
+    // commonjsOptions: {
+    //   transformMixedEsModules: true,
+    //   include: [/node_modules/],
+    //   ignoreDynamicRequires: true,
+    // },
   },
   ssr: {
     external: Object.keys(peerDependencies),
@@ -59,5 +66,24 @@ export default defineConfig({
       },
     ],
   },
-  plugins: [dts({ include: [...entryPoints, './modules.d.ts'] })],
+  plugins: [
+    //     {
+    //       name: 'esm-shim',
+    //       renderChunk(code, chunk, { format }) {
+    //         if (chunk.isEntry && format === 'es') {
+    //           return `
+    // import { createRequire as _createRequireShim } from 'node:module';
+    // const require = _createRequireShim(import.meta.url);
+    // const __dirname = new URL(\`\${import.meta.url}/..\`).pathname;
+    // ${code}
+    //           `;
+    //         }
+    //         return null;
+    //       },
+    //     },
+    viteStaticCopy({
+      targets: [{ src: './node_modules/eslint-plugin-prettier/worker.mjs', dest: '.' }],
+    }),
+    dts({ include: [...entryPoints, './modules.d.ts'] }),
+  ],
 });
