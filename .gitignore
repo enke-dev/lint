@@ -10,3 +10,13 @@
 
 /stylelint.config.d.ts
 /stylelint.config.js
+
+/biome.config.d.ts
+/biome.config.js
+/biome.config.json
+
+/test.run.*.d.ts
+/test.run.*.js
+
+/test.helpers.d.ts
+/test.helpers.js
