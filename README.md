@@ -89,6 +89,72 @@ export default defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
 
 For now, [no TypeScript support](https://github.com/stylelint/stylelint/issues/4940) is possible.
 
+## Prepare Biome config (alternative)
+
+[Biome](https://biomejs.dev/) is a fast, all-in-one linter and formatter that can replace ESLint and Prettier.\
+This package provides a Biome configuration that mirrors the ESLint, Prettier, and Stylelint rules.
+
+> [!NOTE]
+> Biome is best suited for JavaScript/TypeScript projects. For HTML, Web Components, or CSS with advanced features, see [BIOME_INCOMPATIBLE_RULES.md](./BIOME_INCOMPATIBLE_RULES.md).
+
+First, install the necessary dependencies:
+
+```bash
+npm i -D @enke.dev/lint @biomejs/biome
+```
+
+### Using the JSON configuration
+
+Copy the provided `biome.config.json` from this package to your project root:
+
+```bash
+cp node_modules/@enke.dev/lint/biome.config.json biome.config.json
+```
+
+### Using the TypeScript configuration helper
+
+Alternatively, create a `biome.config.ts` file and generate the configuration:
+
+```ts
+import { defineConfig } from '@enke.dev/lint/biome.config.js';
+import { writeFileSync } from 'node:fs';
+
+const config = defineConfig({ root: true });
+writeFileSync('biome.config.json', JSON.stringify(config, null, 2));
+```
+
+Then run the file to generate `biome.config.json`:
+
+```bash
+npx tsx biome.config.ts
+```
+
+### Using Biome
+
+Once configured, you can use Biome to check and format your code:
+
+```bash
+# Check all files
+npx biome check .
+
+# Check and apply fixes
+npx biome check --write .
+
+# Format only
+npx biome format --write .
+```
+
+### VSCode Integration
+
+Install the [Biome extension](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) for VSCode and add to your `settings.json`:
+
+```json
+{
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true
+}
+```
+
 ## Development
 
 This repo self-tests the configuration by linting itself: `npm run lint`.\
