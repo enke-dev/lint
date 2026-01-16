@@ -2,15 +2,17 @@
 
 This document lists rules from the existing ESLint, Prettier, and Stylelint configurations that cannot be directly implemented in Biome or have limited support.
 
+> **Update January 2026:** Biome 2.0 was released in 2025 with GritQL-based custom plugin support, enabling project-specific lint rules. However, the specialized features below still cannot be fully replicated.
+
 ## ESLint Rules Not Available in Biome
 
 ### HTML Linting and Formatting
 
-**Status (as of Biome v2.3.11):** Biome now supports HTML formatting and basic linting, but it's still more limited than `@html-eslint/eslint-plugin`.
+**Status (as of Biome 2.x in 2026):** Biome now supports HTML formatting and basic linting (experimental), but comprehensive HTML-specific linting is still more limited than `@html-eslint/eslint-plugin`.
 
 **What Biome supports:**
 - ✅ HTML formatting (including embedded JS/CSS in `<script>` and `<style>` tags)
-- ✅ Basic HTML linting
+- ✅ Basic HTML linting (experimental)
 - ✅ Experimental support for Vue, Svelte, and Astro files
 
 **What's not available or limited:**
@@ -68,13 +70,20 @@ The following import-related rules from `eslint-plugin-import` have limited or n
 **Recommendation**: Biome's automatic import organization is enabled and works well for most cases but doesn't support the exact custom grouping specified in the ESLint config.
 
 ### Web Components and Lit-specific Rules
+
+**Status (2026):** Biome can lint and format standard JavaScript/TypeScript code used in Web Components (including Lit), but it lacks specialized rules for framework-specific patterns.
+
 The following rules from `eslint-plugin-wc`, `eslint-plugin-lit`, and `eslint-plugin-lit-a11y` are not available:
 
 - `wc/guard-super-call` - Web component super call guarding
-- All Lit-specific linting rules for template syntax
+- All Lit-specific linting rules for template syntax (e.g., Lit template string bindings)
 - Lit accessibility rules for template HTML
+- Web Component-specific reactive property conventions
 
-**Recommendation**: For Web Components and Lit projects, continue using ESLint with these specialized plugins, or use Biome only for non-Lit TypeScript files.
+**Recommendation**: 
+- Biome works for standard JS/TS/HTML in Web Component files but doesn't recognize Lit/WC-specific idioms
+- For strict Lit/Web Component conventions, continue using ESLint with specialized plugins
+- **With Biome 2.0 plugins (2026):** You could potentially write custom GritQL rules for some Lit patterns, but this requires significant effort and doesn't match ESLint plugin feature parity
 
 ### TypeScript-specific Rules
 Some TypeScript-ESLint rules have different behavior or are not available:
@@ -110,6 +119,31 @@ Biome has **limited CSS linting support** compared to Stylelint. The following S
 
 **Recommendation**: For CSS/SCSS projects requiring strict property ordering, custom property patterns, or SCSS-specific linting, **continue using Stylelint**. Biome can be used for JavaScript/TypeScript/JSON files in the same project, while Stylelint handles CSS/SCSS.
 
+## Biome 2.0 Plugin System (2026 Update)
+
+**Good News:** Biome 2.0 (released 2025) introduced a custom plugin system using GritQL.
+
+**What This Enables:**
+- ✅ Write custom lint rules using GritQL query language
+- ✅ Project-specific or organization-specific validations
+- ✅ Rapidly prototype rules before upstreaming to Biome core
+
+**Current Limitations:**
+- ⚠️ **Diagnostic-only:** Plugins can report issues but cannot auto-fix (fixers planned for future release)
+- ⚠️ **GritQL only:** Must write plugins in GritQL; JavaScript/TypeScript plugin support is planned but not yet available
+- ⚠️ **Significant effort:** Creating GritQL plugins for complex patterns (like Lit templates, HTML-specific rules) requires deep understanding and substantial development time
+- ⚠️ **Not ESLint-compatible:** No compatibility layer for existing ESLint plugins
+
+**Impact on This Package:**
+- The specialized features (HTML linting, Lit/Web Components, custom import sorting, CSS property ordering) **cannot be easily replicated** with current Biome plugins
+- While theoretically possible to write custom GritQL rules for some patterns, the effort would be substantial and wouldn't match existing ESLint plugin feature parity
+- For projects needing these specialized features, **ESLint+Prettier+Stylelint remains the better choice**
+
+**Biome Plugin Philosophy:**
+- Biome maintains a "batteries-included" approach - most rules are built-in
+- Plugins are intended for rapid prototyping or highly specialized needs
+- Popular plugin rules are upstreamed to Biome core for better UX and performance
+
 ## Summary
 
 ### When to Use Biome as a Complete Replacement
@@ -118,16 +152,18 @@ Biome is best suited as a **complete replacement** for ESLint + Prettier + Style
 
 - ✅ **Pure JS/TS/JSON projects** - No HTML files, no Web Components/Lit
 - ✅ **Standard frameworks** - React, Next.js, Node.js with mainstream patterns
-- ✅ **Performance critical** - Large codebases where 10x+ faster linting/formatting matters
+- ✅ **Performance critical** - Large codebases where 10-25x faster linting/formatting matters
 - ✅ **Simplified tooling** - Want single tool, single config instead of coordinating ESLint/Prettier/Stylelint
 
-**What you get:**
+**What you get (as of 2026):**
 - Full JavaScript/TypeScript linting (ESLint-compatible rules)
 - Full formatting support (97%+ Prettier-compatible)
 - JSON linting and formatting
+- HTML formatting (experimental linting)
 - Most accessibility rules
 - Automatic import organization
-- Much faster performance (8-13x)
+- Custom plugin support via GritQL (diagnostic-only)
+- Much faster performance (10-25x vs ESLint+Prettier)
 - Zero config conflicts
 
 ### When Biome Cannot Fully Replace ESLint/Prettier/Stylelint

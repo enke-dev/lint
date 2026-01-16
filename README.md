@@ -103,7 +103,7 @@ This package provides a Biome configuration that mirrors the ESLint, Prettier, a
 > 
 > **Stick with ESLint+Prettier+Stylelint if:** Your project uses HTML files, Web Components/Lit, or requires CSS property ordering/SCSS linting.
 > 
-> See [BIOME_INCOMPATIBLE_RULES.md](./BIOME_INCOMPATIBLE_RULES.md) for detailed comparison and decision guidance.
+> **Note (2026):** Biome 2.0 introduced GritQL-based custom plugins, but the specialized features (HTML linting, Lit/Web Components) still cannot be easily replicated. See [BIOME_INCOMPATIBLE_RULES.md](./BIOME_INCOMPATIBLE_RULES.md) for details.
 
 First, install the necessary dependencies:
 
