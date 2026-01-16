@@ -112,35 +112,60 @@ Biome has **limited CSS linting support** compared to Stylelint. The following S
 
 ## Summary
 
-### Full Support
-- ✅ **JavaScript/TypeScript linting** - Most ESLint rules are covered
-- ✅ **JSON linting and formatting** - Full support
-- ✅ **Code formatting** - Prettier-compatible formatting
-- ✅ **Accessibility rules** - Most a11y rules are supported
-- ✅ **Basic import organization** - Automatic import sorting
+### When to Use Biome as a Complete Replacement
 
-### Partial Support
-- ⚠️ **Import rules** - Basic support, but not all custom import rules are available
-- ⚠️ **CSS formatting** - Basic CSS formatting works, but limited linting
-- ⚠️ **TypeScript strict rules** - Most rules covered, some advanced type-checking rules may differ
+Biome is best suited as a **complete replacement** for ESLint + Prettier + Stylelint when:
 
-### No Support / Recommended to Continue Using Original Tools
-- ❌ **HTML linting** - Use `@html-eslint/eslint-plugin` with ESLint
-- ❌ **Web Components/Lit** - Use `eslint-plugin-wc` and `eslint-plugin-lit` with ESLint
-- ❌ **CSS property ordering** - Use Stylelint
-- ❌ **SCSS linting** - Use Stylelint
-- ❌ **CSS custom property patterns** - Use Stylelint
+- ✅ **Pure JS/TS/JSON projects** - No HTML files, no Web Components/Lit
+- ✅ **Standard frameworks** - React, Next.js, Node.js with mainstream patterns
+- ✅ **Performance critical** - Large codebases where 10x+ faster linting/formatting matters
+- ✅ **Simplified tooling** - Want single tool, single config instead of coordinating ESLint/Prettier/Stylelint
 
-## Recommended Usage
+**What you get:**
+- Full JavaScript/TypeScript linting (ESLint-compatible rules)
+- Full formatting support (97%+ Prettier-compatible)
+- JSON linting and formatting
+- Most accessibility rules
+- Automatic import organization
+- Much faster performance (8-13x)
+- Zero config conflicts
 
-Biome is best suited as a **drop-in replacement** for ESLint + Prettier in projects focused on **JavaScript and TypeScript** with **JSON** files.
+### When Biome Cannot Fully Replace ESLint/Prettier/Stylelint
 
-For projects with:
-- **HTML files** → Continue using ESLint with HTML plugins
-- **Web Components/Lit** → Continue using ESLint with specialized plugins
-- **CSS/SCSS with property ordering** → Continue using Stylelint
+**This package's ESLint config includes specialized features that Biome does not support:**
 
-Biome can be used **alongside** these tools in a mixed approach:
-- Use Biome for `.js`, `.ts`, `.jsx`, `.tsx`, and `.json` files
-- Use ESLint for `.html` files and Web Components
-- Use Stylelint for `.css` and `.scss` files
+#### Critical Gaps for This Package's Users:
+- ❌ **HTML-specific linting** - `@html-eslint/eslint-plugin` rules (img alt text, duplicate IDs, ARIA, etc.)
+- ❌ **Web Components/Lit template linting** - `eslint-plugin-lit`, `eslint-plugin-lit-a11y`, `eslint-plugin-wc`
+- ❌ **Custom import sort groups** - `eslint-plugin-simple-import-sort` with specific grouping
+- ❌ **CSS property ordering** - `stylelint-config-rational-order`
+- ❌ **SCSS linting** - Full SCSS validation and rules
+- ❌ **Custom CSS property patterns** - Enforcing naming conventions like `--prefix-name`
+
+**Trade-off Assessment:**
+
+If your project uses **any** of the above features (HTML files, Web Components, Lit, or strict CSS/SCSS linting), choosing Biome means:
+- **You lose those specialized checks** - No equivalent in Biome
+- **You'd need to supplement with ESLint/Stylelint anyway** - defeating the "single tool" benefit
+- **Better to stick with ESLint + Prettier + Stylelint** for full feature coverage
+
+### Recommended Decision Matrix
+
+| Your Project Uses | Recommended Choice | Why |
+|-------------------|-------------------|-----|
+| Just JS/TS/JSON | **Biome only** | Full replacement, much faster |
+| JS/TS + React (no HTML files) | **Biome only** | Full replacement, much faster |
+| HTML files for linting | **ESLint + Prettier** | Biome lacks HTML linting rules |
+| Web Components/Lit | **ESLint + Prettier** | Biome lacks template linting |
+| CSS/SCSS with strict rules | **ESLint + Prettier + Stylelint** | Biome lacks CSS property ordering |
+| Mixed (HTML + Lit + CSS) | **ESLint + Prettier + Stylelint** | Keep existing setup |
+
+### Hybrid Approach (Not Recommended)
+
+While technically possible to use Biome for `.js`/`.ts` files and ESLint for `.html` files, this creates:
+- ❌ Configuration complexity (two separate configs)
+- ❌ Tool coordination overhead
+- ❌ Team confusion about which tool to use when
+- ❌ Loses Biome's "single tool" simplicity benefit
+
+**Verdict:** Choose **either** Biome (for pure JS/TS) **or** ESLint+Prettier+Stylelint (for comprehensive coverage). Don't mix both.

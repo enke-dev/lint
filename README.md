@@ -89,13 +89,21 @@ export default defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
 
 For now, [no TypeScript support](https://github.com/stylelint/stylelint/issues/4940) is possible.
 
-## Prepare Biome config (alternative)
+## Prepare Biome config (alternative to ESLint/Prettier/Stylelint)
 
-[Biome](https://biomejs.dev/) is a fast, all-in-one linter and formatter that can replace ESLint and Prettier.\
-This package provides a Biome configuration that mirrors the ESLint, Prettier, and Stylelint rules.
+[Biome](https://biomejs.dev/) is a fast, all-in-one linter and formatter that can **replace** ESLint, Prettier, and Stylelint.\
+This package provides a Biome configuration that mirrors the ESLint, Prettier, and Stylelint rules **where possible**.
 
-> [!NOTE]
-> Biome is best suited for JavaScript/TypeScript projects. For HTML, Web Components, or CSS with advanced features, see [BIOME_INCOMPATIBLE_RULES.md](./BIOME_INCOMPATIBLE_RULES.md).
+> [!IMPORTANT]
+> **Choose Either Biome OR ESLint+Prettier+Stylelint - Not Both**
+> 
+> Biome is designed as a complete replacement, not a supplement. Mixing both tools creates unnecessary complexity.
+> 
+> **Use Biome if:** Your project is pure JS/TS/JSON without HTML files, Web Components, or advanced CSS linting needs.
+> 
+> **Stick with ESLint+Prettier+Stylelint if:** Your project uses HTML files, Web Components/Lit, or requires CSS property ordering/SCSS linting.
+> 
+> See [BIOME_INCOMPATIBLE_RULES.md](./BIOME_INCOMPATIBLE_RULES.md) for detailed comparison and decision guidance.
 
 First, install the necessary dependencies:
 
