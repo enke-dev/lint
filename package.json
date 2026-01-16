@@ -15,10 +15,9 @@
     "prettier.config.js",
     "stylelint.config.d.ts",
     "stylelint.config.js",
-    "biome.config.d.ts",
-    "biome.config.js",
-    "biome.config.json",
-    "README.md"
+    "biome.config.ts",
+    "README.md",
+    "BIOME_INCOMPATIBLE_RULES.md"
   ],
   "type": "module",
   "main": "eslint.config.js",

@@ -1,4 +1,4 @@
-import { ok, strictEqual as _strictEqual } from 'node:assert';
+import { ok } from 'node:assert';
 import { readFile, writeFile } from 'node:fs/promises';
 import { describe, it, suite } from 'node:test';
 
@@ -6,10 +6,7 @@ import { ESLint } from 'eslint';
 import { check, resolveConfig } from 'prettier';
 import Stylelint from 'stylelint';
 
-function strictEqual(actual: number, expected: number, message: string) {
-  const formattedMessage = message.replace('%d', expected.toString());
-  _strictEqual(actual, expected, formattedMessage);
-}
+import { strictEqual } from './test.helpers.js';
 
 async function runEslintOnFile(filePath: string, fix = false): Promise<ESLint.LintResult> {
   const results = await new ESLint({ fix }).lintFiles([filePath]);

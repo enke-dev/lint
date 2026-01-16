@@ -103,17 +103,9 @@ First, install the necessary dependencies:
 npm i -D @enke.dev/lint @biomejs/biome
 ```
 
-### Using the JSON configuration
+### Configuration
 
-Copy the provided `biome.config.json` from this package to your project root:
-
-```bash
-cp node_modules/@enke.dev/lint/biome.config.json biome.config.json
-```
-
-### Using the TypeScript configuration helper
-
-Alternatively, create a `biome.config.ts` file and generate the configuration:
+Create a `biome.config.ts` file in your project root and generate the configuration:
 
 ```ts
 import { defineConfig } from '@enke.dev/lint/biome.config.js';

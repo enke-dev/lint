@@ -36,7 +36,11 @@ export interface Options {
  * @returns A Biome configuration object
  */
 export const defineConfig = (options: Options = {}) => {
-  const { root = false, includes = ['**', '!**/dist/', '!**/node_modules/', '!**/package-lock.json'], disableRules = [] } = options;
+  const {
+    root = false,
+    includes = ['**', '!**/dist/', '!**/node_modules/', '!**/package-lock.json'],
+    disableRules = [],
+  } = options;
 
   // Base configuration that mirrors existing ESLint + Prettier + Stylelint rules
   const config = {

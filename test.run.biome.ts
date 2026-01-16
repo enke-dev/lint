@@ -1,14 +1,17 @@
-import { ok, strictEqual as _strictEqual } from 'node:assert';
+import { ok } from 'node:assert';
 import { exec } from 'node:child_process';
+import { writeFileSync } from 'node:fs';
 import { promisify } from 'node:util';
 import { describe, it, suite } from 'node:test';
 
+import { strictEqual } from './test.helpers.js';
+import { defineConfig } from './biome.config.js';
+
 const execAsync = promisify(exec);
 
-function strictEqual(actual: number, expected: number, message: string) {
-  const formattedMessage = message.replace('%d', expected.toString());
-  _strictEqual(actual, expected, formattedMessage);
-}
+// Generate biome.config.json for testing
+const config = defineConfig({ root: true });
+writeFileSync('biome.config.json', JSON.stringify(config, null, 2));
 
 interface BiomeResult {
   errorCount: number;

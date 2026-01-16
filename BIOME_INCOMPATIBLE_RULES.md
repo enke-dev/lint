@@ -4,8 +4,17 @@ This document lists rules from the existing ESLint, Prettier, and Stylelint conf
 
 ## ESLint Rules Not Available in Biome
 
-### HTML Linting Rules
-Biome has limited HTML support compared to `@html-eslint/eslint-plugin`. The following HTML-specific rules are not available:
+### HTML Linting and Formatting
+
+**Status (as of Biome v2.3.11):** Biome now supports HTML formatting and basic linting, but it's still more limited than `@html-eslint/eslint-plugin`.
+
+**What Biome supports:**
+- ✅ HTML formatting (including embedded JS/CSS in `<script>` and `<style>` tags)
+- ✅ Basic HTML linting
+- ✅ Experimental support for Vue, Svelte, and Astro files
+
+**What's not available or limited:**
+The following HTML-specific ESLint rules are not available in Biome:
 
 - `html/require-img-alt` - HTML image alt text requirement
 - `html/no-multiple-h1` - Multiple H1 tag restriction
@@ -33,7 +42,12 @@ Biome has limited HTML support compared to `@html-eslint/eslint-plugin`. The fol
 - `html/report-bad-indent` - Bad indentation reporting
 - `html/require-input-label` - Input label requirement
 
-**Recommendation**: For HTML files, continue using ESLint with `@html-eslint/eslint-plugin` or use Biome for JS/TS only.
+**Recommendation**: 
+- **For HTML formatting:** Biome can now be used for HTML files and provides fast, Prettier-compatible formatting.
+- **For comprehensive HTML linting:** Continue using ESLint with `@html-eslint/eslint-plugin` for advanced HTML-specific rules.
+- **For framework files (Vue/Svelte/Astro):** Biome's support is experimental but functional for basic formatting and linting.
+
+For more details, see [Biome's Language Support documentation](https://biomejs.dev/internals/language-support/).
 
 ### Import/Export Rules
 The following import-related rules from `eslint-plugin-import` have limited or no support:
