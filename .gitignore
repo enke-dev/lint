@@ -15,8 +15,8 @@
 /biome.config.js
 /biome.config.json
 
-/test.run.biome.d.ts
-/test.run.biome.js
+/test.run.*.d.ts
+/test.run.*.js
 
 /test.helpers.d.ts
 /test.helpers.js
