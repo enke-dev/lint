@@ -15,6 +15,7 @@
     "prettier.config.js",
     "stylelint.config.d.ts",
     "stylelint.config.js",
+    "biome.json",
     "README.md"
   ],
   "type": "module",
@@ -38,8 +39,14 @@
   },
   "peerDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^2.0.0",
+    "@biomejs/biome": "^2.0.0",
     "eslint": "^9.39.1",
     "prettier": "^3.7.4"
+  },
+  "peerDependenciesMeta": {
+    "@biomejs/biome": {
+      "optional": true
+    }
   },
   "optionalDependencies": {
     "jiti": "^2.6.1",
@@ -71,6 +78,7 @@
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.0.0",
+    "@biomejs/biome": "2.3.0",
     "@eslint/config-inspector": "1.4.2",
     "@types/node": "24.10.4",
     "eslint": "9.39.2",
