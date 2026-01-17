@@ -19,17 +19,17 @@ async function runPrettierOnFile(filePath: string): Promise<boolean> {
 suite('prettier', () => {
   describe('naive check that prettier grabs issues', () => {
     it('finds malformed Typescript', async () => {
-      const result = await runPrettierOnFile('test/test.ts');
+      const result = await runPrettierOnFile('test/fixtures/test.ts');
       ok(!result, 'TS file not detected as malformed');
     });
 
     it('finds malformed HTML', async () => {
-      const result = await runPrettierOnFile('test/test.html');
+      const result = await runPrettierOnFile('test/fixtures/test.html');
       ok(!result, 'HTML file not detected as malformed');
     });
 
     it('finds malformed JSON', async () => {
-      const result = await runPrettierOnFile('test/test.json');
+      const result = await runPrettierOnFile('test/fixtures/test.json');
       ok(!result, 'JSON file not detected as malformed');
     });
   });

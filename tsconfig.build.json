@@ -4,8 +4,6 @@
     "./node_modules",
     "test/",
     "test.*.config.ts",
-    "test.run.ts",
-    "test.run.*.ts",
-    "test.helpers.ts"
+    "test.run.ts"
   ]
 }
