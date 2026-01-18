@@ -1,0 +1,13 @@
+language js
+
+// Prevents DOM traversal in connectedCallback
+// Equivalent to: wc/no-child-traversal-in-connectedcallback
+
+`connectedCallback() { $body }` where {
+  $body <: contains `this.querySelector($__)` as $call,
+  register_diagnostic(
+    span = $call,
+    message = "Avoid DOM traversal in connectedCallback. Element children may not be ready.",
+    severity = "warn"
+  )
+}

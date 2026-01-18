@@ -1,0 +1,12 @@
+language js
+
+// Prevents setting/getting attributes in constructors
+// Equivalent to: wc/no-constructor-attributes
+
+`constructor($args) { $body }` where {
+  $body <: contains `this.setAttribute($__)` as $call,
+  register_diagnostic(
+    span = $call,
+    message = "Avoid setAttribute in constructor. Use connectedCallback instead."
+  )
+}

@@ -1,0 +1,12 @@
+language js
+
+// Prevents assignment to 'this' within render methods
+// Equivalent to: lit/no-this-assign-in-render
+
+`render() { $body }` where {
+  $body <: contains `this.$prop = $value` as $assign,
+  register_diagnostic(
+    span = $assign,
+    message = "Avoid assigning to 'this' in render(). This can cause infinite update loops."
+  )
+}

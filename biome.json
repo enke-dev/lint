@@ -6,9 +6,19 @@
     "useIgnoreFile": true
   },
   "files": {
-    "include": ["**/*.js", "**/*.ts", "**/*.json", "**/*.html", "**/*.css"],
-    "ignore": []
+    "includes": ["**/*.js", "**/*.ts", "**/*.json", "**/*.html", "**/*.css"]
   },
+  "plugins": [
+    "./plugins/wc-guard-super-call.grit",
+    "./plugins/wc-no-constructor-attrs.grit",
+    "./plugins/wc-no-dom-in-connected.grit",
+    "./plugins/wc-no-closed-shadow.grit",
+    "./plugins/wc-no-typos.grit",
+    "./plugins/wc-no-constructor-params.grit",
+    "./plugins/lit-lifecycle-super.grit",
+    "./plugins/lit-no-template-arrow.grit",
+    "./plugins/lit-no-this-assign-render.grit"
+  ],
   "formatter": {
     "enabled": true,
     "lineWidth": 100,
@@ -67,18 +77,36 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "noUnusedVariables": {
-          "level": "error",
-          "options": {
-            "ignorePattern": "^_"
-          }
-        },
-        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error"
+      },
+      "suspicious": {
         "noConsole": "error"
       },
       "style": {
         "useImportType": "error",
         "useNodejsImportProtocol": "error"
+      }
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ":NODE:",
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":PATH:",
+              ":BLANK_LINE:",
+              ["*\\?inline", "*\\?raw"]
+            ]
+          }
+        }
       }
     }
   }

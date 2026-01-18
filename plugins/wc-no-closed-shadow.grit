@@ -1,0 +1,13 @@
+language js
+
+// Warns against closed shadow roots
+// Equivalent to: wc/no-closed-shadow-root
+
+`this.attachShadow($opts)` as $call where {
+  $opts <: contains `mode: 'closed'`,
+  register_diagnostic(
+    span = $call,
+    message = "Prefer open shadow roots for better accessibility and testability",
+    severity = "warn"
+  )
+}
