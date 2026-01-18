@@ -24,7 +24,7 @@
   "scripts": {
     "check": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint -c test.eslint.config.ts .",
-    "test": "node --experimental-strip-types --test ./test/specs/*.test.ts",
+    "test": "tsx --test ./test/specs/*.test.ts",
     "inspect": "eslint-config-inspector --config eslint.config.ts",
     "dev": "tsc -p tsconfig.build.json --watch",
     "build": "tsc -p tsconfig.build.json"
@@ -88,6 +88,7 @@
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard-scss": "16.0.0",
     "stylelint-order": "7.0.1",
+    "tsx": "4.21.0",
     "typescript": "5.9.3",
     "typescript-eslint": "8.51.0"
   }
