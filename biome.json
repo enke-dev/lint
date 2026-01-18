@@ -56,7 +56,7 @@
       "enabled": true,
       "indentWidth": 2,
       "indentScriptAndStyle": false,
-      "selfCloseVoidElements": true
+      "selfCloseVoidElements": "never"
     },
     "linter": {
       "enabled": true

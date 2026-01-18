@@ -2,7 +2,7 @@ import { describe, it, suite } from 'node:test';
 
 import { ESLint } from 'eslint';
 
-import { strictEqual } from './test.helpers.ts';
+import { strictEqual } from './test-helpers.js';
 
 async function runEslintOnFile(filePath: string, fix = false): Promise<ESLint.LintResult> {
   const results = await new ESLint({ fix }).lintFiles([filePath]);

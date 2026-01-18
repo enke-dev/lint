@@ -75,9 +75,9 @@ The VSCode ESLint plugin can be configured to pick up packages correctly by upda
 
 ### Prepare Prettier config
 
-Create a `prettier.config.js` file in the root of your project:
+Create a `prettier.config.ts` file in the root of your project:
 
-```js
+```ts
 import config from '@enke.dev/lint/prettier.config.js';
 
 export default config;
@@ -93,17 +93,16 @@ Install the required dependencies:
 npm i -D stylelint stylelint-config-rational-order stylelint-config-standard-scss stylelint-order
 ```
 
-Create a `stylelint.config.js` file in the root of your project:
+Create a `stylelint.config.ts` file in the root of your project:
 
-```js
-// @ts-check
+```ts
 import { defineConfig } from '@enke.dev/lint/stylelint.config.js';
 
 export default defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
 ```
 
 > [!NOTE]
-> Stylelint [does not support TypeScript configs](https://github.com/stylelint/stylelint/issues/4940) yet.
+> Stylelint might still have [bugs with TypeScript configs](https://github.com/stylelint/stylelint/issues/4940).
 
 ---
 
@@ -114,7 +113,7 @@ Biome is a unified, Rust-based linter and formatter that's 10-20x faster than No
 ### Install packages
 
 ```bash
-npm i -D @enke.dev/lint @biomejs/biome
+npm i -D @biomejs/biome @enke.dev/lint
 ```
 
 ### Prepare Biome config
@@ -173,23 +172,6 @@ For restricting imports (similar to ESLint example above), Biome uses a differen
 
 Biome does not support all features from ESLint/Prettier/Stylelint. See [BIOME_COMPATIBILITY.md](./BIOME_COMPATIBILITY.md) for details.
 
-**Notable limitations:**
-- No SCSS support (only standard CSS)
-- No Web Components or Lit-specific linting
-- Limited HTML linting (experimental support)
-- No plugin system (yet)
-
-**When to use Biome:**
-- Standard JavaScript/TypeScript/JSON/CSS projects
-- Performance-critical environments
-- Projects without SCSS or Web Components
-
-**When to use ESLint + Prettier + Stylelint:**
-- Projects using SCSS
-- Projects using Web Components or Lit
-- Projects requiring extensive HTML linting
-- Projects needing specific ESLint plugins
-
 ---
 
 ## Development
@@ -197,4 +179,4 @@ Biome does not support all features from ESLint/Prettier/Stylelint. See [BIOME_C
 This repo self-tests the configuration by linting itself: `npm run lint`
 
 A naive test suite verifies that linters detect issues: `npm run test`\
-It uses the native Node test runner against faulty code in the `test` directory.
+It uses the native Node test runner with tests in `test/specs` against faulty code in the `test/fixtures` directory.

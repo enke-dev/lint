@@ -3,13 +3,11 @@ import { describe, it, suite } from 'node:test';
 
 import Stylelint from 'stylelint';
 
-import { strictEqual } from './test.helpers.ts';
+import { strictEqual } from './test-helpers.js';
 
 async function runStylelintOnFile(filePath: string, fix = false): Promise<Stylelint.LintResult> {
   const untouchedFile = await readFile(filePath, 'utf-8');
-  // @ts-expect-error -- we need to import the source type script file here
-  // eslint-disable-next-line import/extensions
-  const { defineConfig } = await import('../../stylelint.config.ts');
+  const { defineConfig } = await import('../../stylelint.config.js');
   const config = defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
   const { results } = await Stylelint.lint({ files: filePath, config, fix, formatter: 'json' });
   // reset fixed file to original state, as we can not

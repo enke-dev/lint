@@ -2,7 +2,7 @@ import { ok } from 'node:assert';
 import { readFile, writeFile } from 'node:fs/promises';
 import { describe, it, suite } from 'node:test';
 
-import { execAsync } from './test.helpers.ts';
+import { execAsync } from './test-helpers.js';
 
 interface BiomeResult {
   errorCount: number;
@@ -18,8 +18,9 @@ async function runBiomeOnFile(filePath: string, fix = false): Promise<BiomeResul
   try {
     await execAsync(command);
     return { errorCount: 0, warningCount: 0 };
-  } catch (error: any) {
-    const output = error.stderr || error.stdout || '';
+  } catch (error: unknown) {
+    const { stderr, stdout } = error as { stderr?: string; stdout?: string };
+    const output = stderr || stdout || '';
     const errorMatches = output.match(/error/gi) || [];
     const warningMatches = output.match(/warning/gi) || [];
     return {
