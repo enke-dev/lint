@@ -9,15 +9,15 @@
     "includes": ["**/*.js", "**/*.ts", "**/*.json", "**/*.html", "**/*.css"]
   },
   "plugins": [
-    "./plugins/wc-guard-super-call.grit",
-    "./plugins/wc-no-constructor-attrs.grit",
-    "./plugins/wc-no-dom-in-connected.grit",
-    "./plugins/wc-no-closed-shadow.grit",
-    "./plugins/wc-no-typos.grit",
-    "./plugins/wc-no-constructor-params.grit",
-    "./plugins/lit-lifecycle-super.grit",
-    "./plugins/lit-no-template-arrow.grit",
-    "./plugins/lit-no-this-assign-render.grit"
+    "./node_modules/.biome-plugins/lit-lifecycle-super.grit",
+    "./node_modules/.biome-plugins/lit-no-template-arrow.grit",
+    "./node_modules/.biome-plugins/lit-no-this-assign-render.grit",
+    "./node_modules/.biome-plugins/wc-guard-super-call.grit",
+    "./node_modules/.biome-plugins/wc-no-closed-shadow.grit",
+    "./node_modules/.biome-plugins/wc-no-constructor-attrs.grit",
+    "./node_modules/.biome-plugins/wc-no-constructor-params.grit",
+    "./node_modules/.biome-plugins/wc-no-dom-in-connected.grit",
+    "./node_modules/.biome-plugins/wc-no-typos.grit"
   ],
   "formatter": {
     "enabled": true,
