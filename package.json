@@ -23,7 +23,8 @@
   "types": "eslint.config.d.ts",
   "scripts": {
     "check": "tsc -p tsconfig.build.json --noEmit",
-    "lint": "eslint -c test.eslint.config.ts .",
+    "lint:eslint": "eslint -c eslint.config.ts .",
+    "lint:biome": "biome lint",
     "test": "tsx --test ./test/specs/*.test.ts",
     "inspect": "eslint-config-inspector --config eslint.config.ts",
     "dev": "tsc -p tsconfig.build.json --watch",

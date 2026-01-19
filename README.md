@@ -168,10 +168,6 @@ For restricting imports (similar to ESLint example above), Biome uses a differen
 }
 ```
 
-### Limitations
-
-Biome does not support all features from ESLint/Prettier/Stylelint. See [BIOME_COMPATIBILITY.md](./BIOME_COMPATIBILITY.md) for details.
-
 ---
 
 ## Development
