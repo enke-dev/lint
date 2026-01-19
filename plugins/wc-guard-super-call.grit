@@ -1,0 +1,11 @@
+language js
+
+// Ensures constructors in classes call super()
+// Equivalent to: wc/guard-super-call
+
+`constructor($args) { $body }` where {
+  not $body <: contains `super($__)`,
+  register_diagnostic(
+    message = "Constructor must call super()"
+  )
+}

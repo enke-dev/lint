@@ -1,0 +1,13 @@
+language js
+
+// Discourages arrow functions directly in Lit templates
+// Equivalent to: lit/no-template-arrow
+
+`html\`$content\`` where {
+  $content <: contains `() => $body` as $arrow,
+  register_diagnostic(
+    span = $arrow,
+    message = "Avoid arrow functions in templates. Define methods on the class instead.",
+    severity = "warn"
+  )
+}

@@ -1,0 +1,11 @@
+language js
+
+// Catches common typos in Web Component lifecycle methods
+// Equivalent to: wc/no-typos
+
+`connectedCallBack($args) { $body }` as $method where {
+  register_diagnostic(
+    span = $method,
+    message = "Typo: should be 'connectedCallback' (lowercase 'b')"
+  )
+}

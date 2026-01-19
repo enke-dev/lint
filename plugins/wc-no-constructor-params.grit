@@ -1,0 +1,14 @@
+language js
+
+// Custom element constructors should not have parameters
+// Equivalent to: wc/no-constructor-params
+
+`class $name extends $base { $members }` where {
+  $members <: contains `constructor($params) { $body }` as $ctor where {
+    not $params <: ``,
+    register_diagnostic(
+      span = $ctor,
+      message = "Custom element constructors should not have parameters"
+    )
+  }
+}

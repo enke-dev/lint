@@ -1,0 +1,12 @@
+language js
+
+// Ensures Lit connectedCallback calls super
+// Equivalent to: lit/lifecycle-super (partial)
+
+`connectedCallback() { $body }` as $method where {
+  not $body <: contains `super.connectedCallback()`,
+  register_diagnostic(
+    span = $method,
+    message = "connectedCallback should call super.connectedCallback()"
+  )
+}
