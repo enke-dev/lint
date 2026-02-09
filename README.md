@@ -96,3 +96,7 @@ Therefore, a `test.eslint.config.ts` is used.
 
 And additionally, a naive test is in place to check that the linter actually finds issues: `npm run test`.\
 It uses the native Node test runner against some obviously faulty code in the `test` directory.
+
+### Updating dependencies
+
+If not already done via [dependabot](https://dependabot.com/), dependencies can be updated by running `npx --yes npm-check-updates --dep dev,optional,peer,prod,packageManager --upgrade --reject @types/node`.
