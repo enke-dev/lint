@@ -22,6 +22,7 @@ export const defineConfig = ({ cssCustomPropertyPrefix }: Options): Config => ({
       },
     ],
     'declaration-empty-line-before': null,
+    'no-duplicate-selectors': true,
     'rule-empty-line-before': [
       'always-multi-line',
       { except: ['after-single-line-comment', 'first-nested'] },
