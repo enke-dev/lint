@@ -1,5 +1,10 @@
 # @enke.dev/lint
 
+A very opinionated Eslint and Prettier configuration for JavaScript and TypeScript projects.\
+It also includes an experimental Stylelint configuration for CSS, SASS and SCSS files.
+
+In the near future this might hold a configuration for [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) as well.
+
 ## Install packages
 
 Make sure to install the necessary peer dependencies:
