@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.11.20](https://github.com/enke-dev/lint/compare/0.11.19...0.11.20) (2026-02-09)
+
+
+### Bug Fixes
+
+* disable failing rule until aligned upstream ([7b8b387](https://github.com/enke-dev/lint/commit/7b8b387bad7705e95c2005bb3a6ab0294eaae303))
+
 ## [0.11.19](https://github.com/enke-dev/lint/compare/0.11.18...0.11.19) (2026-02-09)
 
 
