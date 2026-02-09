@@ -76,7 +76,7 @@
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.0.0",
     "@eslint/config-inspector": "1.4.2",
-    "@types/node": "24.10.4",
+    "@types/node": "24.10.12",
     "eslint": "10.0.0",
     "jiti": "2.6.1",
     "prettier": "3.8.1",
