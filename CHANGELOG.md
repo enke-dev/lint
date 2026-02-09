@@ -1,5 +1,13 @@
 # @enke/lint
 
+## [0.11.19](https://github.com/enke-dev/lint/compare/0.11.18...0.11.19) (2026-02-09)
+
+
+### Bug Fixes
+
+* explicitly disallow duplicate selectors ([f883db2](https://github.com/enke-dev/lint/commit/f883db28f8c65a111b5ac88583b822985ee30c40))
+* override lib versions ([980f1dd](https://github.com/enke-dev/lint/commit/980f1dd699cf74c933a74577e5ff10bd604bdbec))
+
 ## [0.11.18](https://github.com/enke-dev/lint/compare/0.11.17...0.11.18) (2026-01-15)
 
 ## [0.11.17](https://github.com/enke-dev/lint/compare/0.11.16...0.11.17) (2026-01-05)
