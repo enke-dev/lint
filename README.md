@@ -94,6 +94,72 @@ export default defineConfig({ cssCustomPropertyPrefix: 'your-prefix' });
 
 For now, [no TypeScript support](https://github.com/stylelint/stylelint/issues/4940) is possible.
 
+## Prepare Biome config (alternative to ESLint/Prettier/Stylelint)
+
+[Biome](https://biomejs.dev/) is a fast, all-in-one linter and formatter that can **replace** ESLint, Prettier, and Stylelint.\
+This package provides a Biome configuration that mirrors the ESLint, Prettier, and Stylelint rules **where possible**.
+
+> [!IMPORTANT]
+> **Choose Either Biome OR ESLint+Prettier+Stylelint - Not Both**
+> 
+> Biome is designed as a complete replacement, not a supplement. Mixing both tools creates unnecessary complexity.
+> 
+> **Use Biome if:** Your project is pure JS/TS/JSON without HTML files, Web Components, or advanced CSS linting needs.
+> 
+> **Stick with ESLint+Prettier+Stylelint if:** Your project uses HTML files, Web Components/Lit, or requires CSS property ordering/SCSS linting.
+> 
+> **Note (2026):** Biome 2.0 introduced GritQL-based custom plugins, but the specialized features (HTML linting, Lit/Web Components) still cannot be easily replicated. See [BIOME_INCOMPATIBLE_RULES.md](./BIOME_INCOMPATIBLE_RULES.md) for details.
+
+First, install the necessary dependencies:
+
+```bash
+npm i -D @enke.dev/lint @biomejs/biome
+```
+
+### Configuration
+
+Create a `biome.config.ts` file in your project root and generate the configuration:
+
+```ts
+import { defineConfig } from '@enke.dev/lint/biome.config.js';
+import { writeFileSync } from 'node:fs';
+
+const config = defineConfig({ root: true });
+writeFileSync('biome.config.json', JSON.stringify(config, null, 2));
+```
+
+Then run the file to generate `biome.config.json`:
+
+```bash
+npx tsx biome.config.ts
+```
+
+### Using Biome
+
+Once configured, you can use Biome to check and format your code:
+
+```bash
+# Check all files
+npx biome check .
+
+# Check and apply fixes
+npx biome check --write .
+
+# Format only
+npx biome format --write .
+```
+
+### VSCode Integration
+
+Install the [Biome extension](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) for VSCode and add to your `settings.json`:
+
+```json
+{
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true
+}
+```
+
 ## Development
 
 This repo self-tests the configuration by linting itself: `npm run lint`.\

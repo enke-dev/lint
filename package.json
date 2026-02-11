@@ -15,7 +15,11 @@
     "prettier.config.js",
     "stylelint.config.d.ts",
     "stylelint.config.js",
-    "README.md"
+    "biome.config.d.ts",
+    "biome.config.js",
+    "biome.config.ts",
+    "README.md",
+    "BIOME_INCOMPATIBLE_RULES.md"
   ],
   "type": "module",
   "main": "eslint.config.js",
@@ -23,7 +27,9 @@
   "scripts": {
     "check": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint -c test.eslint.config.ts .",
+    "lint:biome": "biome check --config-path=biome.config.json .",
     "test": "node --experimental-strip-types --test test.run.ts",
+    "test:biome": "npx tsx test.run.biome.ts",
     "inspect": "eslint-config-inspector --config eslint.config.ts",
     "dev": "tsc -p tsconfig.build.json --watch",
     "build": "tsc -p tsconfig.build.json"
@@ -46,6 +52,7 @@
     "prettier": "^3.8.1"
   },
   "optionalDependencies": {
+    "@biomejs/biome": "^2.3.11",
     "jiti": "^2.6.1",
     "stylelint": "^17.1.1",
     "stylelint-config-rational-order": "^0.1.2",
@@ -75,6 +82,7 @@
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.0.0",
+    "@biomejs/biome": "2.3.11",
     "@eslint/config-inspector": "1.4.2",
     "@types/node": "24.10.4",
     "eslint": "10.0.0",
