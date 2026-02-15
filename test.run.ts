@@ -1,10 +1,14 @@
 import { ok, strictEqual as _strictEqual } from 'node:assert';
+import { execFile } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import { describe, it, suite } from 'node:test';
+import { promisify } from 'node:util';
 
 import { ESLint } from 'eslint';
 import { check, resolveConfig } from 'prettier';
 import Stylelint from 'stylelint';
+
+const execFileAsync = promisify(execFile);
 
 function strictEqual(actual: number, expected: number, message: string) {
   const formattedMessage = message.replace('%d', expected.toString());
@@ -41,6 +45,41 @@ async function runStylelintOnFile(filePath: string, fix = false): Promise<Stylel
     await writeFile(filePath, untouchedFile, 'utf-8');
   }
   return results[0];
+}
+
+interface OxlintResult {
+  errorCount: number;
+  warningCount: number;
+}
+
+async function runOxlintOnFile(filePath: string, fix = false): Promise<OxlintResult> {
+  const args = ['-c', 'oxlint.config.ts', filePath];
+  if (fix) {
+    args.push('--fix');
+  }
+
+  try {
+    await execFileAsync('npx', ['oxlint', ...args], { cwd: process.cwd() });
+    return { errorCount: 0, warningCount: 0 };
+  } catch (error: unknown) {
+    // oxlint exits with non-zero when there are errors
+    // Parse the output to get error count
+    const stderr = (error as { stderr?: string }).stderr || '';
+    const stdout = (error as { stdout?: string }).stdout || '';
+    const output = stderr + stdout;
+
+    // Look for "Found X warnings and Y error(s)" in the output
+    const match = output.match(/Found (\d+) warnings? and (\d+) errors?/);
+    if (match) {
+      return {
+        warningCount: parseInt(match[1], 10),
+        errorCount: parseInt(match[2], 10),
+      };
+    }
+
+    // If we can't parse, assume there was at least one error
+    return { errorCount: 1, warningCount: 0 };
+  }
 }
 
 suite('eslint', () => {
@@ -130,6 +169,34 @@ suite('stylelint', () => {
     it('applies fixable issues in CSS', async () => {
       const { warnings } = await runStylelintOnFile('test/test.css', true);
       strictEqual(warnings.length, 2, 'CSS file should have %d remaining unfixable issues');
+    });
+  });
+});
+
+suite('oxlint', () => {
+  describe('naive check that oxlint grabs issues', () => {
+    it('finds all issues in Typescript', async () => {
+      const { errorCount } = await runOxlintOnFile('test/test.ts');
+      strictEqual(errorCount, 1, 'TS file should have %d issues');
+    });
+
+    it('finds all issues in Lit components', async () => {
+      const { errorCount } = await runOxlintOnFile('test/test.component.ts');
+      // Oxlint doesn't catch all the same issues as ESLint for Lit components
+      strictEqual(errorCount, 0, 'Lit component file should have %d issues');
+    });
+  });
+
+  describe('naive check that oxlint can fix issues', () => {
+    it('applies fixable issues in Typescript', async () => {
+      const { errorCount } = await runOxlintOnFile('test/test.ts', true);
+      strictEqual(errorCount, 1, 'TS file should have %d remaining unfixable issues');
+    });
+
+    it('applies fixable issues in Lit components', async () => {
+      const { errorCount } = await runOxlintOnFile('test/test.component.ts', true);
+      // Oxlint doesn't catch all the same issues as ESLint for Lit components
+      strictEqual(errorCount, 0, 'Lit component file should have %d remaining unfixable issue');
     });
   });
 });

@@ -11,6 +11,8 @@
     "eslint.config.d.ts",
     "eslint.config.js",
     "eslint-plugins.d.ts",
+    "oxlint.config.d.ts",
+    "oxlint.config.js",
     "prettier.config.d.ts",
     "prettier.config.js",
     "stylelint.config.d.ts",
@@ -23,6 +25,7 @@
   "scripts": {
     "check": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint -c test.eslint.config.ts .",
+    "lint:oxlint": "oxlint --ignore-pattern='test/' .",
     "test": "node --experimental-strip-types --test test.run.ts",
     "inspect": "eslint-config-inspector --config eslint.config.ts",
     "dev": "tsc -p tsconfig.build.json --watch",
@@ -43,7 +46,16 @@
   "peerDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^2.0.0",
     "eslint": "^10.0.0",
+    "oxlint": "^1.0.0",
     "prettier": "^3.8.1"
+  },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    },
+    "oxlint": {
+      "optional": true
+    }
   },
   "optionalDependencies": {
     "jiti": "^2.6.1",
@@ -79,6 +91,7 @@
     "@types/node": "24.10.4",
     "eslint": "10.0.0",
     "jiti": "2.6.1",
+    "oxlint": "1.47.0",
     "prettier": "3.8.1",
     "stylelint": "17.1.1",
     "stylelint-config-rational-order": "0.1.2",
