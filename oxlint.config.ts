@@ -1,7 +1,7 @@
 /**
  * Oxlint configuration for JavaScript and TypeScript projects
  * This is an alternative to the ESLint configuration
- * 
+ *
  * Note: Oxlint focuses on linting (correctness, performance, best practices)
  * You should still use Prettier for code formatting
  */
@@ -41,23 +41,29 @@ export default defineConfig({
   // Specific rule configurations
   rules: {
     // Enforce curly braces for all control statements
-    'curly': 'error',
-    
+    curly: 'error',
+
     // Disallow use of console
     'no-console': 'error',
-    
+
     // Disallow unused variables (with exceptions for underscore prefixed)
-    'no-unused-vars': ['error', { 
-      argsIgnorePattern: '^_', 
-      varsIgnorePattern: '^_',
-      caughtErrors: 'none',
-    }],
-    
+    'no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrors: 'none',
+      },
+    ],
+
     // Disallow expressions where the operation doesn't affect the value
-    'no-unused-expressions': ['error', { 
-      allowShortCircuit: true, 
-      allowTernary: true,
-    }],
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+      },
+    ],
 
     // Import plugin rules
     'import/no-cycle': 'error',

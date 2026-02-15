@@ -35,20 +35,26 @@ export default defineConfig({
     // Specific rule configurations
     rules: {
         // Enforce curly braces for all control statements
-        'curly': 'error',
+        curly: 'error',
         // Disallow use of console
         'no-console': 'error',
         // Disallow unused variables (with exceptions for underscore prefixed)
-        'no-unused-vars': ['error', {
+        'no-unused-vars': [
+            'error',
+            {
                 argsIgnorePattern: '^_',
                 varsIgnorePattern: '^_',
                 caughtErrors: 'none',
-            }],
+            },
+        ],
         // Disallow expressions where the operation doesn't affect the value
-        'no-unused-expressions': ['error', {
+        'no-unused-expressions': [
+            'error',
+            {
                 allowShortCircuit: true,
                 allowTernary: true,
-            }],
+            },
+        ],
         // Import plugin rules
         'import/no-cycle': 'error',
         'import/no-self-import': 'error',

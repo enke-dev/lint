@@ -31,17 +31,23 @@ export default defineConfig({
 
   // Specific rule configurations
   rules: {
-    'curly': 'error',
+    curly: 'error',
     'no-console': 'error',
-    'no-unused-vars': ['error', { 
-      argsIgnorePattern: '^_', 
-      varsIgnorePattern: '^_',
-      caughtErrors: 'none',
-    }],
-    'no-unused-expressions': ['error', { 
-      allowShortCircuit: true, 
-      allowTernary: true,
-    }],
+    'no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrors: 'none',
+      },
+    ],
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+      },
+    ],
     'import/no-cycle': 'error',
     'import/no-self-import': 'error',
     'import/no-useless-path-segments': 'error',
@@ -78,4 +84,3 @@ export default defineConfig({
     },
   ],
 });
-
