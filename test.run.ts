@@ -196,7 +196,7 @@ suite('oxlint', () => {
     it('applies fixable issues in Lit components', async () => {
       const { errorCount } = await runOxlintOnFile('test/test.component.ts', true);
       // Oxlint doesn't catch all the same issues as ESLint for Lit components
-      strictEqual(errorCount, 0, 'Lit component file should have %d remaining unfixable issue');
+      strictEqual(errorCount, 0, 'Lit component file should have %d remaining unfixable issues');
     });
   });
 });

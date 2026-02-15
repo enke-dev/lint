@@ -82,12 +82,6 @@ export default defineConfig({
     // File-specific overrides
     overrides: [
         {
-            files: ['**/*.ts', '**/*.tsx'],
-            rules: {
-            // TypeScript specific overrides
-            },
-        },
-        {
             files: ['**/*.test.ts', '**/*.spec.ts', '**/test/**'],
             rules: {
                 // Allow any and console in tests

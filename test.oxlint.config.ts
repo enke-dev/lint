@@ -72,10 +72,6 @@ export default defineConfig({
   // File-specific overrides
   overrides: [
     {
-      files: ['**/*.ts', '**/*.tsx'],
-      rules: {},
-    },
-    {
       files: ['**/*.test.ts', '**/*.spec.ts', '**/test/**'],
       rules: {
         'typescript/no-explicit-any': 'off',
