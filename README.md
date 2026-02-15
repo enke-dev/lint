@@ -1,13 +1,22 @@
 # @enke.dev/lint
 
-A very opinionated Eslint and Prettier configuration for JavaScript and TypeScript projects.\
-It also includes an experimental Stylelint configuration for CSS, SASS and SCSS files.
+A very opinionated linting and formatting configuration for JavaScript and TypeScript projects.
 
-In the near future this might hold a configuration for [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) as well.
+This package provides configurations for:
+- **ESLint** - for comprehensive linting (recommended)
+- **Oxlint** - for fast linting as an alternative to ESLint
+- **Prettier** - for code formatting (works with both ESLint and Oxlint)
+- **Stylelint** (experimental) - for CSS, SASS and SCSS files
 
-## Install packages
+## Quick Start
 
-Make sure to install the necessary peer dependencies:
+Choose between **ESLint** or **Oxlint** for your linting needs. Both work with Prettier for formatting.
+
+### Option 1: ESLint (Recommended)
+
+ESLint provides comprehensive linting with more rules and plugin support.
+
+**Install packages:**
 
 ```bash
 npm i -D @enke.dev/lint eslint prettier @awmottaz/prettier-plugin-void-html
@@ -19,9 +28,9 @@ For Typescript support, additionally install:
 npm i -D jiti typescript typescript-eslint
 ```
 
-## Prepare Eslint config
+**Create ESLint config:**
 
-Create a `eslint.config.js` (or `eslint.config.ts`) file in the root of your project and add the following content:
+Create a `eslint.config.js` (or `eslint.config.ts`) file in the root of your project:
 
 ```js
 import config from '@enke.dev/lint';
@@ -29,16 +38,41 @@ import config from '@enke.dev/lint';
 export default config;
 ```
 
+### Option 2: Oxlint (Fast Alternative)
+
+Oxlint is a fast Rust-based linter that covers essential rules with better performance.
+
+**Install packages:**
+
+```bash
+npm i -D @enke.dev/lint oxlint prettier @awmottaz/prettier-plugin-void-html
+```
+
+**Create Oxlint config:**
+
+Create a `oxlint.config.ts` file in the root of your project:
+
+```ts
+import config from '@enke.dev/lint/oxlint.config.js';
+
+export default config;
+```
+
+**Note:** Oxlint focuses on correctness and best practices. You should still use Prettier for code formatting.
+
+## Extending Configurations
+
+### Extending ESLint config
+
 > [!NOTE]
 > Using Typescript may requires the root directory where to find the `tsconfig.json` to be specified.\
 > Therefore, a convenience function `setTsConfigRootDir` is provided to configure this option globally.
-
-### Extending a config
 
 For example for setting up the Typescript parser, you can extend the base config like this:
 
 ```ts
 import config, { setTsConfigRootDir } from '@enke.dev/lint';
+import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   // extend the base config
@@ -48,12 +82,30 @@ export default defineConfig([
 ]);
 ```
 
+### Extending Oxlint config
+
+You can extend the base Oxlint config by importing it and adding your own rules:
+
+```ts
+import { defineConfig } from 'oxlint';
+import baseConfig from '@enke.dev/lint/oxlint.config.js';
+
+export default defineConfig({
+  ...baseConfig,
+  rules: {
+    ...baseConfig.rules,
+    // Add your custom rules here
+    'no-console': 'off', // example: allow console
+  },
+});
+```
+
 > [!TIP]
 > Extending configurations works the same way with all other configs provided by this package.
 
 ### Using Monorepos
 
-The VSCode Eslint plugin can be configured to pick up packages correctly by updating your `settings.json`, e.g.:
+The VSCode ESLint plugin can be configured to pick up packages correctly by updating your `settings.json`, e.g.:
 
 ```json
 {
@@ -96,11 +148,14 @@ For now, [no TypeScript support](https://github.com/stylelint/stylelint/issues/4
 
 ## Development
 
-This repo self-tests the configuration by linting itself: `npm run lint`.\
-Therefore, a `test.eslint.config.ts` is used.
+This repo self-tests the configurations by linting itself:
+- ESLint: `npm run lint`
+- Oxlint: `npm run lint:oxlint`
 
-And additionally, a naive test is in place to check that the linter actually finds issues: `npm run test`.\
-It uses the native Node test runner against some obviously faulty code in the `test` directory.
+For testing, `test.eslint.config.ts` and `test.oxlint.config.ts` are used.
+
+Additionally, naive tests are in place to check that the linters actually find issues: `npm run test`.\
+The tests use the native Node test runner against some obviously faulty code in the `test` directory.
 
 ### Updating dependencies
 
