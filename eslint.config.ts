@@ -75,10 +75,6 @@ const config: ReturnType<typeof defineConfig> = defineConfig([
       litHtmlSources: true,
     },
     rules: {
-      // currently not working due to esilnt v10.0.0 breaking changes,
-      // see https://github.com/typescript-eslint/typescript-eslint/issues/11952
-      '@typescript-eslint/consistent-generic-constructors': 'off',
-
       // formatting
       '@typescript-eslint/no-unused-expressions': [
         'error',
