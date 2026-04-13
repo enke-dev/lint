@@ -61,7 +61,6 @@ jobs:
         run: |
           git config user.email "${{ vars.NPM_EMAIL }}"
           git config user.name "${{ vars.NPM_USER }}"
-          npm config set //registry.npmjs.org/:_authToken ${{secrets.NPM_TOKEN}}
           npm install --global release-it @release-it/conventional-changelog
 
       - name: Release
