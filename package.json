@@ -58,8 +58,8 @@
     "@eslint/compat": "2.0.5",
     "@eslint/js": "10.0.1",
     "@eslint/json": "1.2.0",
-    "@html-eslint/eslint-plugin": "0.59.0",
-    "@html-eslint/parser": "0.59.0",
+    "@html-eslint/eslint-plugin": "0.60.0",
+    "@html-eslint/parser": "0.60.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-html": "8.1.4",
@@ -67,7 +67,7 @@
     "eslint-plugin-import-extensions": "0.1.5",
     "eslint-plugin-lit": "2.2.1",
     "eslint-plugin-lit-a11y": "5.1.1",
-    "eslint-plugin-package-json": "0.91.1",
+    "eslint-plugin-package-json": "0.91.2",
     "eslint-plugin-prettier": "5.5.5",
     "eslint-plugin-simple-import-sort": "13.0.0",
     "eslint-plugin-unused-imports": "4.4.1",
@@ -77,14 +77,14 @@
     "@awmottaz/prettier-plugin-void-html": "2.1.0",
     "@eslint/config-inspector": "2.0.0",
     "@types/node": "24.12.2",
-    "eslint": "10.2.1",
+    "eslint": "10.3.0",
     "jiti": "2.6.1",
     "prettier": "3.8.3",
-    "stylelint": "17.9.0",
+    "stylelint": "17.10.0",
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard-scss": "17.0.0",
     "stylelint-order": "8.1.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.59.0"
+    "typescript-eslint": "8.59.1"
   }
 }
