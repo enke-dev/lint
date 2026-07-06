@@ -1,5 +1,12 @@
 # @enke/lint
 
+# [0.12.0](https://github.com/enke-dev/lint/compare/0.11.35...0.12.0) (2026-07-06)
+
+
+### Features
+
+* add bun support ([234e14a](https://github.com/enke-dev/lint/commit/234e14a9c9651ae018ea8b0e4c7235a5c81887fd))
+
 ## [0.11.35](https://github.com/enke-dev/lint/compare/0.11.34...0.11.35) (2026-06-30)
 
 ## [0.11.34](https://github.com/enke-dev/lint/compare/0.11.33...0.11.34) (2026-06-01)
