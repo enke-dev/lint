@@ -69,8 +69,10 @@ const config: ReturnType<typeof defineConfig> = defineConfig([
     languageOptions: { parserOptions },
     settings: {
       'import/resolver': {
-        typescript: true,
-        node: true,
+        typescript: {
+          bun: true,
+          node: true,
+        },
       },
       litHtmlSources: true,
     },
