@@ -26,6 +26,10 @@
       "types": "./configs/eslint/node.config.d.ts",
       "default": "./configs/eslint/node.config.js"
     },
+    "./eslint/bun": {
+      "types": "./configs/eslint/bun.config.d.ts",
+      "default": "./configs/eslint/bun.config.js"
+    },
     "./eslint/lit": {
       "types": "./configs/eslint/lit.config.d.ts",
       "default": "./configs/eslint/lit.config.js"

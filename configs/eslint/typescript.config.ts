@@ -49,8 +49,14 @@ export const importSortGroups = [
   ['\\?(inline|raw)$'],
 ];
 
-// JavaScript / TypeScript base config.
-export function typescript(): ConfigWithExtends {
+// JavaScript / TypeScript base config, parametrised by runtime target.
+//
+// Relative imports always carry the emitted `.js` extension: tsc emits `.js`, and
+// runtimes that execute TypeScript directly (bun, ts-node, --experimental-strip-types)
+// resolve a `.js` specifier back to the neighbouring `.ts` source anyway. `target`
+// therefore only switches the resolver, so bun builtins (`bun:test`, `bun:sqlite`) are
+// recognised rather than flagged as unresolved.
+export function typescript(runtime: 'node' | 'bun'): ConfigWithExtends {
   return {
     files: ['**/*.js', '**/*.ts'],
     extends: [
@@ -67,7 +73,7 @@ export function typescript(): ConfigWithExtends {
     languageOptions: { parserOptions },
     settings: {
       'import/resolver': {
-        typescript: { node: true },
+        typescript: runtime === 'bun' ? { bun: true, node: true } : { node: true },
       },
     },
     rules: {
