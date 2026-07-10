@@ -51,6 +51,37 @@ export default defineConfig([
 > [!TIP]
 > Extending configurations works the same way with all other configs provided by this package.
 
+### Composing individual chunks
+
+The default export bundles everything for a `node` project. Relative imports always carry the `.js` extension (tsc emits it; bun and other TS runtimes resolve `.js` back to the `.ts` source anyway). If you need finer control — for example bun builtins like `bun:test` — compose the exposed chunks yourself instead of relying on auto-detection:
+
+```ts
+import { defineConfig } from 'eslint/config';
+
+// each chunk is a flat config array, spread the ones you need
+import { bun, html, json, lit } from '@enke.dev/lint';
+
+export default defineConfig([
+  ...bun, // TypeScript + import rules, bun module resolver
+  ...lit, // web components, lit and inline-html linting
+  ...html, // standalone .html files
+  ...json, // .json files
+]);
+```
+
+Available chunks:
+
+| Export | Applies to        | Notes                                                          |
+| ------ | ----------------- | -------------------------------------------------------------- |
+| `node` | `**/*.js`, `*.ts` | Base TS/import rules, node resolver. In default.               |
+| `bun`  | `**/*.js`, `*.ts` | Same base, bun resolver (resolves `bun:test`, `bun:sqlite`, …). |
+| `lit`  | `**/*.js`, `*.ts` | Web components, lit, a11y and inline-html rules.               |
+| `html` | `**/*.html`       | Standalone HTML files.                                         |
+| `json` | `**/*.json`       | JSON files.                                                    |
+
+> [!NOTE]
+> `node` and `bun` differ only by the import resolver — pick one. The default export uses `node`.
+
 ### Using Monorepos
 
 The VSCode Eslint plugin can be configured to pick up packages correctly by updating your `settings.json`, e.g.:

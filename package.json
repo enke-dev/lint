@@ -8,18 +8,38 @@
     "url": "git+https://github.com/enke-dev/lint.git"
   },
   "files": [
-    "eslint.config.d.ts",
-    "eslint.config.js",
-    "eslint-plugins.d.ts",
-    "prettier.config.d.ts",
-    "prettier.config.js",
-    "stylelint.config.d.ts",
-    "stylelint.config.js",
+    "*.config.js",
+    "*.config.d.ts",
+    "configs/eslint/*.js",
+    "configs/eslint/*.d.ts",
     "README.md"
   ],
   "type": "module",
   "main": "eslint.config.js",
   "types": "eslint.config.d.ts",
+  "exports": {
+    ".": {
+      "types": "./eslint.config.d.ts",
+      "default": "./eslint.config.js"
+    },
+    "./eslint/node": {
+      "types": "./configs/eslint/node.config.d.ts",
+      "default": "./configs/eslint/node.config.js"
+    },
+    "./eslint/lit": {
+      "types": "./configs/eslint/lit.config.d.ts",
+      "default": "./configs/eslint/lit.config.js"
+    },
+    "./eslint/html": {
+      "types": "./configs/eslint/html.config.d.ts",
+      "default": "./configs/eslint/html.config.js"
+    },
+    "./eslint/json": {
+      "types": "./configs/eslint/json.config.d.ts",
+      "default": "./configs/eslint/json.config.js"
+    },
+    "./*": "./*"
+  },
   "scripts": {
     "check": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint -c test.eslint.config.ts .",

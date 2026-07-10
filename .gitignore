@@ -5,6 +5,9 @@
 /eslint.config.d.ts
 /eslint.config.js
 
+/configs/eslint/*.d.ts
+/configs/eslint/*.js
+
 /prettier.config.d.ts
 /prettier.config.js
 
