@@ -20,6 +20,9 @@ jobs:
         with:
           node-version-file: .node-version
           cache: npm
+      # required by the `test:bun` suite (test.run.bun.ts); TODO: pin to a commit SHA
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Install
         run: npm ci

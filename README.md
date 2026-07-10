@@ -168,6 +168,11 @@ For now, [no TypeScript support](https://github.com/stylelint/stylelint/issues/4
 
 ## Development
 
+Prerequisites:
+
+- **Node** — version pinned in [`.node-version`](.node-version) (use `nvm`/`fnm` to match it).
+- **[bun](https://bun.sh/)** — required for the `test:bun` suite; install it globally (`curl -fsSL https://bun.sh/install | bash`).
+
 This repo self-tests the configuration by linting itself: `npm run lint`.\
 Therefore, a `test.eslint.config.ts` is used.
 
