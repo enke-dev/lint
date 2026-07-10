@@ -1,5 +1,14 @@
 # @enke/lint
 
+# [0.13.0](https://github.com/enke-dev/lint/compare/0.12.0...0.13.0) (2026-07-10)
+
+
+### Features
+
+* add bun runtime target ([ec9beab](https://github.com/enke-dev/lint/commit/ec9beab2915b5ee5a54527c89c8751c5d69553ff))
+* add presets and type checked config modes ([d392aed](https://github.com/enke-dev/lint/commit/d392aed55dba484739042f9dd0479d59dee1672f))
+* split lint config into consumable chunks ([17be921](https://github.com/enke-dev/lint/commit/17be921dd2c80114b9b77b8217edc4cc6c672de3))
+
 # [0.12.0](https://github.com/enke-dev/lint/compare/0.11.35...0.12.0) (2026-07-06)
 
 
