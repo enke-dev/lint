@@ -171,8 +171,11 @@ For now, [no TypeScript support](https://github.com/stylelint/stylelint/issues/4
 This repo self-tests the configuration by linting itself: `npm run lint`.\
 Therefore, a `test.eslint.config.ts` is used.
 
-And additionally, a naive test is in place to check that the linter actually finds issues: `npm run test`.\
-It uses the native Node test runner against some obviously faulty code in the `test` directory.
+And additionally, naive tests are in place to check that the linter actually finds issues: `npm run test`.\
+This runs two suites:
+
+- `npm run test:node` — the native Node test runner against obviously faulty code in the `test` directory (default/legacy config, prettier, stylelint).
+- `npm run test:bun` — the bun test runner (`test.run.bun.ts`), which exercises the `bun` and type-checked configs against the source directly (bun resolves `.js`→`.ts`, so no build is needed). Requires [bun](https://bun.sh/).
 
 ### Updating dependencies
 

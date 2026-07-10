@@ -69,6 +69,16 @@ suite('eslint', () => {
       const { errorCount } = await runEslintOnFile('test/test.json');
       strictEqual(errorCount, 3, 'JSON file should have %d issues');
     });
+
+    it('flags bun:* builtins as unresolved under the node config', async () => {
+      // the node resolver does not know bun builtins; the bun config resolving them is
+      // covered under the bun runner (test.run.bun.ts)
+      const { messages } = await runEslintOnFile('test/test.bun.ts');
+      ok(
+        messages.some(message => message.ruleId === 'import/no-unresolved'),
+        'bun: import should be unresolved under the node resolver'
+      );
+    });
   });
 
   describe('naive check that eslint can fix issues', () => {
