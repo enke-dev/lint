@@ -49,20 +49,31 @@ export const importSortGroups = [
   ['\\?(inline|raw)$'],
 ];
 
+export interface TypescriptOptions {
+  // Enable type-aware linting (`strictTypeChecked` + `stylisticTypeChecked`). Requires a
+  // TypeScript program: `projectService` auto-discovers the nearest tsconfig, but files not
+  // covered by one will error unless `parserOptions.projectService.allowDefaultProject` is
+  // configured. Slower than the syntactic-only default.
+  typeChecked?: boolean;
+}
+
 // JavaScript / TypeScript base config, parametrised by runtime target.
 //
 // Relative imports always carry the emitted `.js` extension: tsc emits `.js`, and
 // runtimes that execute TypeScript directly (bun, ts-node, --experimental-strip-types)
-// resolve a `.js` specifier back to the neighbouring `.ts` source anyway. `target`
+// resolve a `.js` specifier back to the neighbouring `.ts` source anyway. `runtime`
 // therefore only switches the resolver, so bun builtins (`bun:test`, `bun:sqlite`) are
 // recognised rather than flagged as unresolved.
-export function typescript(runtime: 'node' | 'bun'): ConfigWithExtends {
+export function typescript(
+  runtime: 'node' | 'bun',
+  { typeChecked = false }: TypescriptOptions = {}
+): ConfigWithExtends {
   return {
     files: ['**/*.js', '**/*.ts'],
     extends: [
       eslintPluginJs.configs.recommended,
-      ...eslintTs.configs.strict,
-      ...eslintTs.configs.stylistic,
+      ...(typeChecked ? eslintTs.configs.strictTypeChecked : eslintTs.configs.strict),
+      ...(typeChecked ? eslintTs.configs.stylisticTypeChecked : eslintTs.configs.stylistic),
       eslintPluginImport.flatConfigs.recommended,
     ],
     plugins: {
@@ -70,7 +81,10 @@ export function typescript(runtime: 'node' | 'bun'): ConfigWithExtends {
       'unused-imports': eslintPluginUnusedImports,
       'import-extensions': fixupPluginRules(eslintPluginImportExtension),
     },
-    languageOptions: { parserOptions },
+    // type-aware rules need a program; projectService (tseslint v8) auto-discovers tsconfig
+    languageOptions: {
+      parserOptions: typeChecked ? { ...parserOptions, projectService: true } : parserOptions,
+    },
     settings: {
       'import/resolver': {
         typescript: runtime === 'bun' ? { bun: true, node: true } : { node: true },

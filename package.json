@@ -12,6 +12,8 @@
     "*.config.d.ts",
     "configs/eslint/*.js",
     "configs/eslint/*.d.ts",
+    "presets/eslint/*.js",
+    "presets/eslint/*.d.ts",
     "README.md"
   ],
   "type": "module",
@@ -41,6 +43,18 @@
     "./eslint/json": {
       "types": "./configs/eslint/json.config.d.ts",
       "default": "./configs/eslint/json.config.js"
+    },
+    "./eslint/presets/frontend": {
+      "types": "./presets/eslint/frontend.preset.d.ts",
+      "default": "./presets/eslint/frontend.preset.js"
+    },
+    "./eslint/presets/node-library": {
+      "types": "./presets/eslint/node-library.preset.d.ts",
+      "default": "./presets/eslint/node-library.preset.js"
+    },
+    "./eslint/presets/bun-library": {
+      "types": "./presets/eslint/bun-library.preset.d.ts",
+      "default": "./presets/eslint/bun-library.preset.js"
     },
     "./*": "./*"
   },

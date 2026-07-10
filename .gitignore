@@ -8,6 +8,9 @@
 /configs/eslint/*.d.ts
 /configs/eslint/*.js
 
+/presets/eslint/*.d.ts
+/presets/eslint/*.js
+
 /prettier.config.d.ts
 /prettier.config.js
 

@@ -21,7 +21,16 @@ npm i -D jiti typescript typescript-eslint
 
 ## Prepare Eslint config
 
-Create a `eslint.config.js` (or `eslint.config.ts`) file in the root of your project and add the following content:
+Create a `eslint.config.js` (or `eslint.config.ts`) file in the root of your project. There are three ways to consume the configuration, from least to most control: the legacy all-in-one config, a ready-made preset, or the individual single configs.
+
+> [!NOTE]
+> Using Typescript may require the root directory where to find the `tsconfig.json` to be specified.\
+> Therefore, a convenience function `setTsConfigRootDir` is provided to configure this option globally.
+
+### 1. Legacy config
+
+> [!WARNING]
+> The default export is **deprecated**. It bundles `node` + `lit` + `html` + `json` and additionally assumes gitignore-based ignores and this package's own tsconfig root — assumptions that do not hold for every project. Prefer a [preset](#2-presets) or [single configs](#3-single-configs).
 
 ```js
 import config from '@enke.dev/lint';
@@ -29,37 +38,46 @@ import config from '@enke.dev/lint';
 export default config;
 ```
 
-> [!NOTE]
-> Using Typescript may requires the root directory where to find the `tsconfig.json` to be specified.\
-> Therefore, a convenience function `setTsConfigRootDir` is provided to configure this option globally.
+### 2. Presets
 
-### Extending a config
-
-For example for setting up the Typescript parser, you can extend the base config like this:
+Ready-made combinations for common project types. Import the one that matches your project and export it directly:
 
 ```ts
-import config, { setTsConfigRootDir } from '@enke.dev/lint';
+import { frontend } from '@enke.dev/lint/eslint/presets/frontend';
 
-export default defineConfig([
-  // extend the base config
-  ...config,
-  // configure typescript parser to your needs
-  setTsConfigRootDir(import.meta.dirname),
-]);
+export default frontend;
 ```
 
-> [!TIP]
-> Extending configurations works the same way with all other configs provided by this package.
+Available presets:
 
-### Composing individual chunks
+| Preset                                       | Import name   | Bundles                          |
+| -------------------------------------------- | ------------- | -------------------------------- |
+| `@enke.dev/lint/eslint/presets/frontend`     | `frontend`    | `node` + `lit` + `html` + `json` |
+| `@enke.dev/lint/eslint/presets/node-library` | `nodeLibrary` | `node` + `json`                  |
+| `@enke.dev/lint/eslint/presets/bun-library`  | `bunLibrary`  | `bun` + `json`                   |
 
-The default export bundles everything for a `node` project. Relative imports always carry the `.js` extension (tsc emits it; bun and other TS runtimes resolve `.js` back to the `.ts` source anyway). If you need finer control — for example bun builtins like `bun:test` — compose the exposed chunks yourself instead of relying on auto-detection:
+Presets are flat config arrays, so they can be extended — e.g. to point the TypeScript parser at your `tsconfig.json`:
 
 ```ts
 import { defineConfig } from 'eslint/config';
 
-// each chunk is a flat config array, spread the ones you need
-import { bun, html, json, lit } from '@enke.dev/lint';
+import { setTsConfigRootDir } from '@enke.dev/lint';
+import { frontend } from '@enke.dev/lint/eslint/presets/frontend';
+
+export default defineConfig([...frontend, setTsConfigRootDir(import.meta.dirname)]);
+```
+
+### 3. Single configs
+
+For full control, compose the individual chunks yourself. Each is a flat config array; spread the ones you need:
+
+```ts
+import { defineConfig } from 'eslint/config';
+
+import { bun } from '@enke.dev/lint/eslint/bun';
+import { html } from '@enke.dev/lint/eslint/html';
+import { json } from '@enke.dev/lint/eslint/json';
+import { lit } from '@enke.dev/lint/eslint/lit';
 
 export default defineConfig([
   ...bun, // TypeScript + import rules, bun module resolver
@@ -69,18 +87,41 @@ export default defineConfig([
 ]);
 ```
 
-Available chunks:
+Available configs:
 
-| Export | Applies to        | Notes                                                          |
-| ------ | ----------------- | -------------------------------------------------------------- |
-| `node` | `**/*.js`, `*.ts` | Base TS/import rules, node resolver. In default.               |
-| `bun`  | `**/*.js`, `*.ts` | Same base, bun resolver (resolves `bun:test`, `bun:sqlite`, …). |
-| `lit`  | `**/*.js`, `*.ts` | Web components, lit, a11y and inline-html rules.               |
-| `html` | `**/*.html`       | Standalone HTML files.                                         |
-| `json` | `**/*.json`       | JSON files.                                                    |
+| Import                       | Name   | Applies to        | Notes                                                           |
+| ---------------------------- | ------ | ----------------- | --------------------------------------------------------------- |
+| `@enke.dev/lint/eslint/node` | `node` | `**/*.js`, `*.ts` | Base TS/import rules, node resolver.                            |
+| `@enke.dev/lint/eslint/bun`  | `bun`  | `**/*.js`, `*.ts` | Same base, bun resolver (resolves `bun:test`, `bun:sqlite`, …). |
+| `@enke.dev/lint/eslint/lit`  | `lit`  | `**/*.js`, `*.ts` | Web components, lit, a11y and inline-html rules.                |
+| `@enke.dev/lint/eslint/html` | `html` | `**/*.html`       | Standalone HTML files.                                          |
+| `@enke.dev/lint/eslint/json` | `json` | `**/*.json`       | JSON files.                                                     |
 
 > [!NOTE]
-> `node` and `bun` differ only by the import resolver — pick one. The default export uses `node`.
+> `node` and `bun` differ only by the import resolver — pick one.
+
+### Type-aware linting
+
+By default the rules are syntactic only (typescript-eslint `strict` + `stylistic`), so no `tsconfig` is required. Every TypeScript base — the `node` / `bun` single configs and all three presets — additionally ships a **type-checked** variant that enables the type-aware rule sets (`strictTypeChecked` + `stylisticTypeChecked`, e.g. `no-floating-promises`, `no-misused-promises`, `await-thenable`).
+
+Each variant is an extra export from the same module — just add the `TypeChecked` suffix:
+
+| Base          | Type-checked variant     | Import from                                  |
+| ------------- | ------------------------ | -------------------------------------------- |
+| `node`        | `nodeTypeChecked`        | `@enke.dev/lint/eslint/node`                 |
+| `bun`         | `bunTypeChecked`         | `@enke.dev/lint/eslint/bun`                  |
+| `frontend`    | `frontendTypeChecked`    | `@enke.dev/lint/eslint/presets/frontend`     |
+| `nodeLibrary` | `nodeLibraryTypeChecked` | `@enke.dev/lint/eslint/presets/node-library` |
+| `bunLibrary`  | `bunLibraryTypeChecked`  | `@enke.dev/lint/eslint/presets/bun-library`  |
+
+```ts
+import { frontendTypeChecked } from '@enke.dev/lint/eslint/presets/frontend';
+
+export default frontendTypeChecked;
+```
+
+> [!WARNING]
+> Type-aware rules require a TypeScript program. The variants enable `projectService`, which auto-discovers the nearest `tsconfig.json` — but any file **not** covered by one (stray configs, generated JS) will error unless you configure [`parserOptions.projectService.allowDefaultProject`](https://typescript-eslint.io/packages/parser/#projectservice). Type-aware linting is also noticeably slower.
 
 ### Using Monorepos
 
