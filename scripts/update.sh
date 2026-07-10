@@ -37,8 +37,11 @@ step() {
 }; run_step "Updating Node.js to current LTS version" step
 
 # Update all dependencies to latest version in all packages
+# > `typescript` is rejected here on purpose: typescript-eslint only supports a bounded TS
+# > range, so it is pinned explicitly further down (after install) to the highest version
+# > within that range. Letting ncu bump it freely would break the install (peer conflict).
 step() {
-  npx -y npm-check-updates --dep dev,optional,peer,prod,packageManager --upgrade --reject @types/node
+  npx -y npm-check-updates --dep dev,optional,peer,prod,packageManager --upgrade --reject @types/node,typescript
 }; run_step "Checking for latest versions of dependencies" step
 
 # Align node types to installed node lts version
@@ -53,6 +56,25 @@ step() {
   rm -rf node_modules &&
   npm install
 }; run_step "Installing updated dependencies" step
+
+# Align TypeScript to the highest version supported by the installed typescript-eslint
+# > typescript-eslint declares a bounded TS support range (peerDependencies.typescript);
+# > pin the newest published (non-prerelease) version within it, mirroring the @types/node
+# > alignment above. npm resolves the range and lists matches ascending, so the last wins.
+step() {
+  TS_VERSION=$(node -e "
+    const range = require('typescript-eslint/package.json').peerDependencies.typescript;
+    const out = require('child_process').execSync(\`npm view 'typescript@\${range}' version\`).toString().trim();
+    const versions = out.split('\n').map(line => line.replace(/.*@/, '').replace(/ .*/, ''));
+    process.stdout.write(versions[versions.length - 1]);
+  ") &&
+  # typescript lives in both optionalDependencies (caret, consumer contract) and
+  # devDependencies (exact pin); set both via `npm pkg set` and sync the lockfile with a
+  # plain install. Using `npm install --save-optional` instead writes a phantom root
+  # `dependencies` entry that a later `npm install` reverts, churning the lockfile.
+  npm pkg set "optionalDependencies.typescript=^${TS_VERSION}" "devDependencies.typescript=${TS_VERSION}" &&
+  npm install
+}; run_step "Aligning TypeScript to typescript-eslint support" step
 
 # Align Node version in Docker- and Compose files
 step() {
