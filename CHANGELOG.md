@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.13.1](https://github.com/enke-dev/lint/compare/0.13.0...0.13.1) (2026-07-10)
+
+
+### Bug Fixes
+
+* align typescript dependency ([2a5f011](https://github.com/enke-dev/lint/commit/2a5f0112ee0b334e2fa3ca27e37fc26901ad1320))
+
 # [0.13.0](https://github.com/enke-dev/lint/compare/0.12.0...0.13.0) (2026-07-10)
 
 
