@@ -17,7 +17,7 @@
     "README.md"
   ],
   "type": "module",
-  "packageManager": "npm@10.9.2",
+  "packageManager": "npm@11.16.0",
   "main": "eslint.config.js",
   "types": "eslint.config.d.ts",
   "exports": {
@@ -113,7 +113,7 @@
     "eslint-plugin-import-extensions": "0.1.5",
     "eslint-plugin-lit": "2.3.1",
     "eslint-plugin-lit-a11y": "5.1.1",
-    "eslint-plugin-package-json": "1.5.0",
+    "eslint-plugin-package-json": "1.6.0",
     "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-simple-import-sort": "13.0.0",
     "eslint-plugin-unused-imports": "4.4.1",
@@ -122,7 +122,7 @@
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.1.0",
     "@eslint/config-inspector": "3.0.4",
-    "@types/node": "24",
+    "@types/node": "24.13.3",
     "eslint": "10.7.0",
     "jiti": "2.7.0",
     "npm-run-all2": "9.0.2",
