@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.13.2](https://github.com/enke-dev/lint/compare/0.13.1...0.13.2) (2026-07-13)
+
+
+### Bug Fixes
+
+* npm as package manager ([3110e7c](https://github.com/enke-dev/lint/commit/3110e7c728c54b659902d265b9f9061cfc9fb05f))
+
 ## [0.13.1](https://github.com/enke-dev/lint/compare/0.13.0...0.13.1) (2026-07-10)
 
 
