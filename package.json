@@ -84,7 +84,7 @@
     "@awmottaz/prettier-plugin-void-html": "^2.1.0",
     "eslint": "^10.7.0",
     "prettier": "^3.9.5",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -121,7 +121,7 @@
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.1.0",
     "@eslint/config-inspector": "3.0.4",
-    "@types/node": "24",
+    "@types/node": "26",
     "eslint": "10.7.0",
     "jiti": "2.7.0",
     "npm-run-all2": "9.0.2",
@@ -130,7 +130,7 @@
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard-scss": "17.0.0",
     "stylelint-order": "8.1.1",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "typescript-eslint": "8.63.0"
   },
   "allowScripts": {
