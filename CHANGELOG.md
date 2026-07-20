@@ -1,5 +1,12 @@
 # @enke/lint
 
+## [0.13.4](https://github.com/enke-dev/lint/compare/0.13.2...0.13.4) (2026-07-20)
+
+
+### Bug Fixes
+
+* **ci:** check out the branch in the release job so release commits land on main ([c6c6f25](https://github.com/enke-dev/lint/commit/c6c6f252bc632be1a8edf27332422e397e11387b))
+
 ## [0.13.2](https://github.com/enke-dev/lint/compare/0.13.1...0.13.2) (2026-07-13)
 
 
