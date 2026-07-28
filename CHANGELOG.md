@@ -1,5 +1,7 @@
 # @enke/lint
 
+## [0.13.6](https://github.com/enke-dev/lint/compare/0.13.5...0.13.6) (2026-07-28)
+
 ## [0.13.5](https://github.com/enke-dev/lint/compare/0.13.4...0.13.5) (2026-07-28)
 
 ## [0.13.4](https://github.com/enke-dev/lint/compare/0.13.2...0.13.4) (2026-07-20)
