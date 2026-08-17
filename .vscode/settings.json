@@ -1,5 +1,6 @@
 {
   "eslint.enable": true,
+  "eslint.options": { "overrideConfigFile": "test.eslint.config.ts" },
   "eslint.validate": ["javascript", "typescript", "html", "json"],
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.importModuleSpecifierEnding": "js",
