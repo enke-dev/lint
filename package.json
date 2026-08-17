@@ -62,6 +62,7 @@
   "scripts": {
     "check": "tsc -p tsconfig.build.json --noEmit",
     "lint": "eslint -c test.eslint.config.ts .",
+    "format": "eslint -c test.eslint.config.ts --fix .",
     "test": "run-p -ns test:*",
     "test:node": "node --experimental-strip-types --test test.run.node.ts",
     "test:bun": "bun test ./test.run.bun.ts",
@@ -98,14 +99,14 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-order": "^8.1.1",
-    "typescript-eslint": "^8.66.0"
+    "typescript-eslint": "^8.67.0"
   },
   "dependencies": {
     "@eslint/compat": "2.1.0",
     "@eslint/js": "10.0.1",
     "@eslint/json": "2.0.1",
-    "@html-eslint/eslint-plugin": "0.64.0",
-    "@html-eslint/parser": "0.64.0",
+    "@html-eslint/eslint-plugin": "0.65.0",
+    "@html-eslint/parser": "0.65.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.5",
     "eslint-plugin-html": "8.1.4",
@@ -113,7 +114,7 @@
     "eslint-plugin-import-extensions": "0.1.5",
     "eslint-plugin-lit": "2.3.1",
     "eslint-plugin-lit-a11y": "5.1.1",
-    "eslint-plugin-package-json": "1.7.0",
+    "eslint-plugin-package-json": "1.7.1",
     "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-simple-import-sort": "14.0.0",
     "eslint-plugin-unused-imports": "4.4.1",
@@ -132,9 +133,9 @@
     "stylelint-config-standard-scss": "17.0.0",
     "stylelint-order": "8.1.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.66.0"
+    "typescript-eslint": "8.67.0"
   },
   "allowScripts": {
-    "unrs-resolver@1.11.1": true
+    "unrs-resolver@1.12.2": true
   }
 }

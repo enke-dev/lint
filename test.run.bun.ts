@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'bun:test';
-
 import { ESLint } from 'eslint';
 
 import { bun } from './configs/eslint/bun.config.ts';
@@ -11,9 +10,9 @@ import type { FlatConfig } from './configs/eslint/typescript.config.ts';
 // the node runtime — bun itself resolves `bun:` builtins regardless — so this suite asserts
 // that the bun config accepts idiomatic bun code, plus the type-aware differential.
 async function lint(filePath: string, config: FlatConfig): Promise<ESLint.LintResult> {
-  const [result] = await new ESLint({ overrideConfigFile: true, overrideConfig: config }).lintFiles([
-    filePath,
-  ]);
+  const [result] = await new ESLint({ overrideConfigFile: true, overrideConfig: config }).lintFiles(
+    [filePath]
+  );
   return result;
 }
 
