@@ -84,7 +84,7 @@
   },
   "peerDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^2.2.1",
-    "eslint": "^10.8.1",
+    "eslint": "^10.9.0",
     "prettier": "^3.9.6",
     "typescript": "6.0.3"
   },
@@ -122,9 +122,9 @@
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.2.1",
-    "@eslint/config-inspector": "3.2.0",
+    "@eslint/config-inspector": "3.3.0",
     "@types/node": "24.13.3",
-    "eslint": "10.8.1",
+    "eslint": "10.9.0",
     "jiti": "2.7.0",
     "npm-run-all2": "9.0.3",
     "prettier": "3.9.6",
