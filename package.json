@@ -84,7 +84,7 @@
   },
   "peerDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^2.2.1",
-    "eslint": "^10.9.1",
+    "eslint": "^10.10.0",
     "prettier": "^3.9.6",
     "typescript": "6.0.3"
   },
@@ -95,16 +95,16 @@
   },
   "optionalDependencies": {
     "jiti": "^2.7.0",
-    "stylelint": "^17.14.1",
+    "stylelint": "^17.15.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-order": "^8.1.1",
-    "typescript-eslint": "^8.68.0"
+    "typescript-eslint": "^8.69.0"
   },
   "dependencies": {
-    "@eslint/compat": "2.1.0",
+    "@eslint/compat": "2.1.1",
     "@eslint/js": "10.0.1",
-    "@eslint/json": "2.0.1",
+    "@eslint/json": "2.1.0",
     "@html-eslint/eslint-plugin": "0.65.0",
     "@html-eslint/parser": "0.65.0",
     "eslint-config-prettier": "10.1.8",
@@ -122,18 +122,18 @@
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.2.1",
-    "@eslint/config-inspector": "3.3.0",
+    "@eslint/config-inspector": "3.4.0",
     "@types/node": "24.13.3",
-    "eslint": "10.9.1",
+    "eslint": "10.10.0",
     "jiti": "2.7.0",
     "npm-run-all2": "9.0.3",
     "prettier": "3.9.6",
-    "stylelint": "17.14.1",
+    "stylelint": "17.15.0",
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard-scss": "17.0.0",
     "stylelint-order": "8.1.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.68.0"
+    "typescript-eslint": "8.69.0"
   },
   "allowScripts": {
     "unrs-resolver@1.12.2": true
