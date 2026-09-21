@@ -84,8 +84,8 @@
   },
   "peerDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^2.3.0",
-    "eslint": "^10.10.0",
-    "prettier": "^3.9.6",
+    "eslint": "^10.11.0",
+    "prettier": "^3.9.8",
     "typescript": "6.0.3"
   },
   "peerDependenciesMeta": {
@@ -99,14 +99,14 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-order": "^8.1.1",
-    "typescript-eslint": "^8.70.0"
+    "typescript-eslint": "^8.70.1"
   },
   "dependencies": {
     "@eslint/compat": "2.1.1",
     "@eslint/js": "10.0.1",
     "@eslint/json": "2.1.0",
-    "@html-eslint/eslint-plugin": "0.66.0",
-    "@html-eslint/parser": "0.66.0",
+    "@html-eslint/eslint-plugin": "0.66.1",
+    "@html-eslint/parser": "0.66.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.5",
     "eslint-plugin-html": "8.2.0",
@@ -114,7 +114,7 @@
     "eslint-plugin-import-extensions": "0.1.5",
     "eslint-plugin-lit": "2.3.1",
     "eslint-plugin-lit-a11y": "5.1.1",
-    "eslint-plugin-package-json": "1.8.1",
+    "eslint-plugin-package-json": "1.9.0",
     "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-simple-import-sort": "14.0.0",
     "eslint-plugin-unused-imports": "4.4.1",
@@ -122,18 +122,18 @@
   },
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "2.3.0",
-    "@eslint/config-inspector": "3.4.1",
-    "@types/node": "24.13.4",
-    "eslint": "10.10.0",
+    "@eslint/config-inspector": "3.5.0",
+    "@types/node": "24.13.6",
+    "eslint": "10.11.0",
     "jiti": "2.7.0",
     "npm-run-all2": "9.0.3",
-    "prettier": "3.9.6",
+    "prettier": "3.9.8",
     "stylelint": "17.15.0",
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard-scss": "17.0.0",
     "stylelint-order": "8.1.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.70.0"
+    "typescript-eslint": "8.70.1"
   },
   "allowScripts": {
     "unrs-resolver@1.12.2": true
