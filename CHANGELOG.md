@@ -1,5 +1,11 @@
 # @enke/lint
 
+## [0.13.14](https://github.com/enke-dev/lint/compare/0.13.13...0.13.14) (2026-09-21)
+
+### Bug Fixes
+
+* hold eslint below 10.11 ([117e6e5](https://github.com/enke-dev/lint/commit/117e6e583735b94a29a90fc8b5200bb7e1609905)), closes [BenoitZugmeyer/eslint-plugin-html#342](https://github.com/BenoitZugmeyer/eslint-plugin-html/issues/342)
+
 ## [0.13.13](https://github.com/enke-dev/lint/compare/0.13.12...0.13.13) (2026-09-14)
 
 ## [0.13.12](https://github.com/enke-dev/lint/compare/0.13.11...0.13.12) (2026-09-08)
