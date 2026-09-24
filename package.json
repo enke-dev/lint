@@ -84,7 +84,7 @@
   },
   "peerDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^2.3.0",
-    "eslint": ">=10.0.0 <10.11.0",
+    "eslint": "^10.11.0",
     "prettier": "^3.9.8",
     "typescript": "6.0.3"
   },
@@ -109,7 +109,7 @@
     "@html-eslint/parser": "0.66.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.5",
-    "eslint-plugin-html": "8.2.0",
+    "eslint-plugin-html": "8.2.1",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-import-extensions": "0.1.5",
     "eslint-plugin-lit": "2.3.1",
@@ -124,7 +124,7 @@
     "@awmottaz/prettier-plugin-void-html": "2.3.0",
     "@eslint/config-inspector": "3.5.0",
     "@types/node": "24.13.6",
-    "eslint": "10.10.0",
+    "eslint": "10.11.0",
     "jiti": "2.7.0",
     "npm-run-all2": "9.0.3",
     "prettier": "3.9.8",
