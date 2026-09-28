@@ -1,5 +1,7 @@
 # @enke/lint
 
+## [0.13.16](https://github.com/enke-dev/lint/compare/0.13.15...0.13.16) (2026-09-28)
+
 ## [0.13.15](https://github.com/enke-dev/lint/compare/0.13.14...0.13.15) (2026-09-24)
 
 ### Bug Fixes
