@@ -151,7 +151,7 @@ It will enforce a specific property order and specific custom property prefixes 
 As this is totally opt-in, all necessary dependencies must be installed first:
 
 ```bash
-npm i -D @enke.dev/lint stylelint stylelint-config-rational-order stylelint-config-standard-scss stylelint-order
+npm i -D @enke.dev/lint stylelint stylelint-config-standard-scss stylelint-order
 ```
 
 Create a `stylelint.config.js` file in the root of your project and add the following content:
