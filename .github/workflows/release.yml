@@ -65,6 +65,10 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: |
+      # release-it only warns when the push fails after publishing, leaving the repo behind npm
+      - name: Verify Push
+        run: |
           version=$(node -e "console.log(require('./package.json').version);")
+          git ls-remote --exit-code --tags origin "refs/tags/${version}" > /dev/null \
+            || { echo "::error::Released ${version} to npm, but its commit and tag were not pushed"; exit 1; }
           echo "Released ${version} :rocket:" >> $GITHUB_STEP_SUMMARY
